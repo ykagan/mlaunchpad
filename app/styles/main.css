@@ -1,7 +1,10 @@
+
+
 body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+    margin-top:50px;
 }
 
 .hero-unit {
@@ -19,4 +22,8 @@ body {
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
+}
+
+a {
+    cursor: pointer;
 }

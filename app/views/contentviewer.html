@@ -1,0 +1,22 @@
+<p ng-controller="ContentviewerCtrl">
+    <ul class="contentBrowserTree">
+        <li ng-repeat="item in rootItems">
+            <img src="{{item.ImageUrl}}" />
+            <a ng-click="openNode(item.Id)">{{item.Title}}</a>
+            <div class="description">
+                {{item.Description}}
+            </div>
+            <div class="children">
+                 <ul>
+                    <li ng-repeat="item in rootItems">
+                        <a ng-click="openNode">{{item.Title}}</a>
+                        <div class="description">
+                            {{item.Description}}
+                        </div>
+                    </li>
+                 </ul>
+            </div>
+        </li>
+    </ul>
+
+</p>

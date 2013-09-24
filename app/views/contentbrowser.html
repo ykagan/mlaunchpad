@@ -1,0 +1,20 @@
+<div ng-controller="ContentbrowserCtrl">
+<ul class="list-group contentBrowserTree">
+    <li ng-repeat="item in rootItems" class="list-group-item" >
+        <a ng-class="{active: item.State == 'open'}" ng-click="toggleChapter(item)"><h4  class="list-group-item-heading" ><img src="{{item.ImageUrl}}" />{{item.Title}} </h4> </a>
+        <div class="children" ng-show="item.State == 'open'">
+            <p class="list-group-item-text">
+                {{item.Description}}
+            </p>
+
+
+                    <a ng-repeat="child in item.Children" class="list-group-item"  ng-class="{active: child.State == 'open'}" ng-click="toggleNode(child)" ng-show="child.isVisible">
+                        <span class="glyphicon " ng-show="child.Type == 'PxUnit'"
+                              ng-class="{'glyphicon-chevron-down': child.State == 'open', 'glyphicon-chevron-right': child.State == 'closed'}" ></span><span>{{child.Title}}</span></a>
+
+
+        </div>
+    </li>
+</ul>
+
+</div>
