@@ -7,14 +7,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand">Launchpad</a>
+	    <a class="navbar-brand" ng-click="toggleLaunchpad()"><span class="glyphicon glyphicon-book" ></span>  Launchpad</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div ng-class="{'collapse': showCollapsedNav}" class="navbar-collapse navbar-ex1-collapse" >
-        <ul class="nav navbar-nav">
-            <li class="active"><a ui-sref="main.contentbrowser">Launchpad</a></li>
-            <li> <a ui-sref="main.contentviewer">Chapter 1 Introduction</a></li>
-        </ul>
+        <!--<ul class="nav navbar-nav">-->
+            <!--<li class="active"><a ui-sref="main.contentbrowser">Chapter 1</a></li>-->
+            <!--<li> <a ui-sref="main.contentviewer">Introduction</a></li>-->
+        <!--</ul>-->
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown" ng-init="showAccount = false">
                 <a class="dropdown-toggle" ng-click="showAccount = !showAccount">Account<b class="caret"></b></a>

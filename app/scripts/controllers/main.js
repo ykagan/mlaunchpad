@@ -1,11 +1,7 @@
 'use strict';
 
 angular.module('cgAngularApp')
-  .controller('MainCtrl', function ($scope) {
-        var mainViewModes =
-        {
-            ContentView: "ContentView",
-            ContentBrowser: "ContentBrowser"
-        }
-        $scope.mode = mainViewModes.ContentBrowser;
+  .controller('MainCtrl', function ($scope, $rootScope) {
+		$rootScope.showContentBrowser = false;
+
   });

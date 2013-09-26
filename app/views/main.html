@@ -1,14 +1,14 @@
 
-<div ng-include src="'views/topnav.html'">
-</div>
-<div class="row">
-<ng-switch on="mode">
-    <div ng-switch-when="ContentBrowser">
-        <ng-include  src="'views/contentbrowser.html'"></ng-include>
-    </div>
-    <div ng-switch-when="ContentView">
-        <ng-include  src="'views/contentviewer.html'"></ng-include>
-    </div>
-
-</ng-switch>
-</div>
+	<div class="row row-offcanvas row-offcanvas-left" ng-class="{active: $parent.showContentBrowser}">
+		<div class="col-xs-8 col-sm-4 sidebar-offcanvas" role="navigation" id="sidebar">
+			<div class="well sidebar-nav">
+				<ul class="nav">
+					<li>LaunchPad</li>
+					<li>
+						<div ui-view="contentbrowser"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row" ui-view="contentviewer"></div>
+	</div>

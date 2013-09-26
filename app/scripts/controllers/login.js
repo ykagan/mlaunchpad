@@ -15,9 +15,9 @@ angular.module('cgAngularApp')
 	        $state.go('main');
         }
     }
-//
-//	if(Account.isLoggedIn())
-//	{
-//		$state.go('main');
-//	}
+
+	if(Account.isLoggedIn())
+	{
+		$state.go('main.contentbrowser');
+	}
   });
