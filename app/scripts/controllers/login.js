@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cgAngularApp')
-  .controller('LoginCtrl', function ($scope, $location, Account) {
+  .controller('LoginCtrl', function ($scope, $state, Account) {
     $scope.user = {
         username: "",
         password: ""
@@ -12,8 +12,12 @@ angular.module('cgAngularApp')
         if(authSuccessful)
         {
             alert("success!");
-            $location.path('/');
+	        $state.go('main');
         }
-
     }
+//
+//	if(Account.isLoggedIn())
+//	{
+//		$state.go('main');
+//	}
   });

@@ -12,10 +12,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div ng-class="{'collapse': showCollapsedNav}" class="navbar-collapse navbar-ex1-collapse" >
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Launchpad</a></li>
-            <li><a href="/">Chapter 1</a></li>
-            <li><a href="#">Introduction</a></li>
-
+            <li class="active"><a ui-sref="main.contentbrowser">Launchpad</a></li>
+            <li> <a ui-sref="main.contentviewer">Chapter 1 Introduction</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown" ng-init="showAccount = false">
@@ -26,7 +24,7 @@
                             <input type="text" class="form-control" placeholder="Search">
                         </div>
                     </form></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a ui-sref="login">Logout</a></li>
                     <li><a href="#">Switch Course</a></li>
                 </ul>
             </li>

@@ -56,9 +56,9 @@ angular.module('cgAngularApp')
 
         $scope.toggleNode = function(item)
         {
+	        var allChildren = item.ParentContainer.Children;
             if(item.State == "closed")
             {
-                var allChildren = item.ParentContainer.Children;
                 angular.forEach(allChildren, function(value,key)
                 {
                     if(value.Parent == item.Id)
@@ -70,7 +70,6 @@ angular.module('cgAngularApp')
             }
             else
             {
-                var allChildren = item.ParentContainer.Children;
                 angular.forEach(allChildren, function(value,key)
                 {
                     if(value.Parent == item.Id)
