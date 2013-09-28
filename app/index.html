@@ -12,10 +12,12 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/bootstrap.css">
-        <link rel="stylesheet" href="styles/bootstrap-theme.css">
-        <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="styles/signin.css">
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/bootstrap-theme.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/signin.css">
+	  <link rel="stylesheet" href="styles/animations.css">
 	  <link rel="stylesheet" href="styles/offcanvas.css">
         <!-- endbuild -->
 </head>
@@ -49,8 +51,13 @@
     </script>
 
     <script src="bower_components/jquery/jquery.js"></script>
+    <!--<script src="bower_components/underscore/underscore.js"></script>-->
+
+    <script src="bower_components/toastr/toastr.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
 
@@ -60,9 +67,12 @@
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/contentbrowser.js"></script>
         <script src="scripts/controllers/contentviewer.js"></script>
-        <script src="scripts/services/account.js"></script>
         <script src="scripts/controllers/TopNav.js"></script>
+
+        <script src="scripts/services/account.js"></script>
         <script src="scripts/services/getcontainer.js"></script>
+        <script src="scripts/services/getitems.js"></script>
+        <script src="scripts/services/logger.js"></script>
         <!-- endbuild -->
 </body>
 </html>

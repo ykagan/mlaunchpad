@@ -14,6 +14,7 @@ angular.module('cgAngularApp' )
                         loggedIn: true
                     };
                     $cookieStore.put('user', $rootScope.user);
+	                //GET COURSES HERE
 
                     return true;
                 }

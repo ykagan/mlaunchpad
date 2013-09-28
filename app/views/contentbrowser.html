@@ -1,18 +1,21 @@
-<div ng-controller="ContentbrowserCtrl">
+<div ng-controller="ContentbrowserCtrl" class="ng-cloak">
 	<ul class="list-group contentBrowserTree">
-		<li ng-repeat="item in rootItems" class="list-group-item"
-		    ng-class="{activeItem: $state.params.item == item.Id, openItem: item.State == 'open'}">
-			<a ng-click="toggleChapter(item)"><h4
-					class="list-group-item-heading"><img src="{{item.ImageUrl}}"/>{{item.Title}} </h4></a>
+		<li ng-repeat="item in rootItems" class="list-group-item lp-root-item"
+		    ng-class="{activeItem: $state.params.item == item.Id, openItem: item.State == 'open'}"
+		    style="background-image: url('http://www.worthpublishers.com{{item.ImageUrl}}');">
+			<a ng-click="toggleChapter(item)"
+					class="list-group-item-heading" >
+				<h3><span>{{item.Title}}</span> </h3></a>
 
-			<div class="children" ng-show="item.State == 'open'">
+			<div class="children animate-show" ng-show="item.State == 'open'">
 				<p class="list-group-item-text">
 					{{item.Description}}
 				</p>
-				<a ng-repeat="child in item.Children" class="list-group-item"
+				<a ng-repeat="child in item.Children" class="list-group-item animate-show"
 				   ng-class="{activeItem: $state.params.item == child.Id, openItem: child.State == 'open'}"
-				   ng-click="clickNode(child)" ng-show="child.isVisible">
-                        <span class="glyphicon " ng-show="child.Type == 'PxUnit'"
+				   ng-click="clickNode(child)" ng-show="child.ParentItem.State == 'open'"
+				   style="padding-left:{{ (child.Level-1)*20 }}px">
+                        <span class="glyphicon " ng-show="child.CanHaveChildren"
                               ng-class="{'glyphicon-chevron-down': child.State == 'open', 'glyphicon-chevron-right': child.State == 'closed'}"></span>
 					<span>{{child.Title}}</span></a>
 			</div>

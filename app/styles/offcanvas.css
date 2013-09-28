@@ -1,4 +1,7 @@
+.well
+{
 
+}
 /*
  * Off Canvas
  * --------------------------------------------------
@@ -18,7 +21,7 @@
 
 	.row-offcanvas-left
 	.sidebar-offcanvas {
-		left: -50%; /* 6 columns */
+		left: -90%; /* 6 columns */
 	}
 
 	.row-offcanvas-right.active {
@@ -26,12 +29,12 @@
 	}
 
 	.row-offcanvas-left.active {
-		left: 50%; /* 6 columns */
+		left: 90%; /* 6 columns */
 	}
 
 	.sidebar-offcanvas {
 		position: absolute;
 		top: 0;
-		width: 50%; /* 6 columns */
+		width: 90%; /* 6 columns */
 	}
 }

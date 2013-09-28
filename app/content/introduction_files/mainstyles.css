@@ -1,0 +1,1022 @@
+/* PW: Include some extra styles */
+/* KC 12/15/2008 not using import anymore...we're just putting bookstyles.css after mainstyles.css in sections files */
+/*@import url("../styles/bookstyles.css");*/
+
+body {
+	font-size:14px; 
+	font-family:Times; 
+	color:#000000; 
+	margin:0; 
+	padding:0; 
+	background-color:#ffffff; 
+	text-align:left;
+/*
+	background-image:url(../pics/textbgd.gif); 
+	background-repeat:repeat-y; background-attachment:fixed
+*/
+} 
+
+
+A {
+	text-decoration:none;
+}
+
+A:hover {
+	text-decoration:underline;
+}
+
+
+
+/* bold links */
+a.ba {
+	color: #369;
+	font-weight:bold;
+}
+
+
+/* term links */
+a.term {
+	color:#000000;
+}
+
+
+/* figure caption link */
+a.captionLink {
+	color:#000000;
+	font-weight:bold;
+}
+
+
+/* supplemental links */
+.modMarker {
+	float: left;
+	margin-right:5px;
+	margin-bottom:2px;
+	text-align: center;
+	padding:3px 3px 3px 3px;
+	border:1px solid #000;
+	position: static;
+}
+
+/* these are for if we want icons in right margin */
+.suppLink1 {
+         left: 590px;
+
+}
+
+.suppLink2 {
+         left: 655px;
+
+}
+
+
+.modLink {
+	font-size:9px;
+	font-weight:bold;
+}
+
+/* in-frame pop-up windows */
+.popInWindowS {
+	visibility:hidden;
+	position:absolute;
+	left:10;
+	top:10;
+	border:3px solid #000000;
+	background-color:#666666;
+	width:325;
+	font-size:12px;
+	text-align:left;
+	z-index:1000;
+}
+
+.popInTitleS {
+	font-size:11px;
+	font-family:Verdana, sans-serif;
+	background-color:#000000;
+	color:#ffffff;
+	padding:2px 3px 4px 3px;
+	cursor:move;
+}
+
+popInTitle {
+	width:95%;
+}
+
+a.popInCloseLinks {
+	color:#ff0000;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+a:hover.popInCloseLinks {
+	color:#ffffff;
+	text-decoration:none;
+}
+
+
+/* [Notes/Highlighting] Link, if applicable */
+.noteLinkDiv {
+	position:absolute;
+	left: 570px;
+	top:30px;
+	font-weight:bold;
+	font-family:Verdana, sans-serif;
+	font-size:10px;
+	display:inline;
+}
+
+a.noteLink {
+	color:#000000;
+	font-size:10px;
+	font-weight:bold;
+	font-family:Verdana, sans-serif;
+	text-decoration:none;
+}
+
+a:hover.noteLink {
+	text-decoration:underline;
+}
+
+.noteBtnTD {
+	text-align:center;
+	font-family:Verdana, sans-serif;
+	font-size:12px;
+	width:80px;
+	height:25px;
+	vertical-align:middle;
+}
+
+.noteBtn1Div {background-color:#aaa}
+.noteBtn2Div {background-color:#666}
+.noteBtn3Div {background-color:#000}
+
+
+a.noteBtn1A {font-weight:normal; color:#000000}
+a.noteBtn2A {font-weight:normal; color:#ffffff}
+a.noteBtn3A {font-weight:normal; color:#ffffff}
+
+
+/* Printed Page box */
+.pageNumOuterDiv {
+	position:absolute;
+	left: 570px;
+	top:5px;
+	font-weight:bold;
+	font-family:Verdana, sans-serif;
+	font-size:10px;
+	text-align:left;
+	display:inline;
+}
+
+.pageNumInnerDiv {
+	background-color: #409793;
+	color: #ffffff;
+	margin-bottom:5px;
+	padding:4px;
+	border:0px solid #000000;
+	white-space:nowrap;
+}
+
+
+/* defines main text */
+.bodyHolder2 {
+	margin-right:180px;
+	padding:0px 15px 0px 10px;
+}
+
+.bodyHolder1 {
+	width: 755px;
+}
+
+.bodydoublefigHolder2 {
+	padding:10px 0;
+}
+
+
+
+/* figures */
+.figureR {
+	float:right;
+	margin:10px -195px 10px 10px;
+	padding:5px;
+	border:1px solid #000000;
+	background-color:#ffffff;
+	display:inline;
+}
+
+.figureF {
+	margin:10px;
+	padding:5px;
+	border:1px solid #000000;
+	background-color:#ffffff;
+	clear:both;
+}
+
+.figureL {
+	float:left;
+	margin:10px 10px 10px 10px;
+	padding:5px;
+	border:1px solid #000000;
+	background-color:#ffffff;
+	display:inline;
+}
+
+.figureDL {
+	margin:0px 5px 0px 0px;
+	padding:5px;
+	border:1px solid #000000;
+	background-color:#ffffff;
+}
+
+.figureDR {
+	margin:0px 0px 0px 5px;
+	padding:5px;
+	border:1px solid #000000;
+	background-color:#ffffff;
+}
+
+
+
+.caption {
+	margin-top:5px;
+	font-size:83%;
+	font-family:Verdana, sans-serif;
+	text-align:left;
+}
+
+
+.figureNumber {
+	color:#666666;
+}
+
+.figCredit {
+	color:#666666;
+}
+
+
+/* quote */
+.quote {
+}
+
+/* chapter number and title in intro section */
+.chapNo {
+	font-size:36px;
+	line-height:30px;
+	background-color: #EC9444;
+	color: #ffffff;
+	font-weight:bold;
+	vertical-align:top;
+	padding:10px;
+}
+
+.chapTitle {
+	font-size:125%;
+	color: #000000;
+	font-weight:bold;
+	vertical-align:top;
+	padding-left:15px;
+}
+
+
+/* section number and title in normal section */
+.secNum {
+	font-size:125%;
+	color: #8F355D;
+	font-weight:bold;
+	padding-right:5px;;
+}
+
+.secTitle {
+	font-size:125%;
+	color: #8F355D;
+	font-weight:bold;
+}
+
+/* used in 0_0.html */
+.bookTitle {
+}
+.titlePageText {
+	font-family:Arial, Verdana; 
+	font-weight:14px;
+}
+
+/* tables */
+.tableDiv {
+	clear:both;
+}
+
+.tableTitle {
+	background-color:#ffffff;
+	color:#ffffff;
+	text-align:left;
+}
+
+
+/* inline texts */
+.inlineBox {
+	margin:20 0 20 0;
+	background-color:#cccccc;
+}
+
+.inlineBoxTitle {
+	color:#009168;
+	font-weight:bold;
+	font-size:14px;;
+}
+
+
+/* examples */
+.exampleDiv {
+	border-top:1px solid #06936b;
+	border-bottom:1px solid #06936b;
+}
+
+.exampleText {
+}
+
+.exampleNo {
+	color:#06936b;
+	font-size:16px;
+	font-weight:bold;
+	white-space:nowrap;
+	padding-right:10px;
+	font-family:Arial;
+}
+
+.exampleTitle {
+	color:#000000;
+	font-size:20px;
+	font-weight:bold;
+	font-family:Arial;
+}
+
+
+/* inline equation */
+.equation {
+	text-align:center;
+	white-space: nowrap;
+	padding:10 0px;
+}
+
+
+/* questions/solutions to problems/exercises */
+.question {
+	margin:20 0px;
+}
+
+.solution {
+	background-color:#ffdd96;
+	display:none;
+	padding:5px;
+	color:#000000;
+	margin-bottom:20px;
+}
+
+
+/* show answer link in problems/exercises */
+.dqtl {
+	text-align:left;
+	padding-top:0px;
+	margin-top:0px;
+}
+
+/* textareas for discussion questions/problems/exercises */
+.dqta {
+	width:500px;
+	height:80px;
+}
+
+/* C-head titles */
+.cheadTitle {
+	font-weight:bold;
+	padding:5px 0;
+	border-top:1px solid #666;
+}
+
+/* margintext -- can be modified with additional styles in bookstyles.css */
+.margintext {
+	float:right;
+	margin:5px -195px 5px 10px;
+	display:inline;
+	width:250px;
+	font-size:.9em;
+	background-color:#666666;
+	color:#ffffff;
+}
+
+.margintextTitle {
+	margin-top:5px;
+	font-weight:bold;
+}
+
+.margintextContent {
+	margin:5px;
+}
+
+/* boxes -- can be modified with additional styles in bookstyles.css */
+.box {
+	border:1px solid #000;
+	margin:10px 0;
+}
+
+.boxHeading {
+	background-color:#999;
+	padding:5px;
+	margin-bottom:5px;
+	color:#fff;
+	font-weight:bold;
+	font-size:1.2em;
+}
+
+.boxNumber {
+	padding-right:10px;
+	color:#ccc;
+}
+
+.boxTitle {
+	font-weight:bold;
+	margin:0 10px;
+}
+
+.boxContent {
+	margin:10px;
+}
+
+/* --------------------------------------------------------- */
+/* chapterContents styles */
+#chapterContents {
+	font-size:10px; 
+	line-height:11px; 
+	font-family: Verdana, sans-serif; 
+	margin:0 0 0 15px; 
+	padding:5px 0 0 0; 
+	background-color: #409793; 
+	color:#fff;
+	background-repeat:no-repeat; 
+	background-attachment:fixed;
+} 
+
+#chapterContents A, #chapterContents A:hover, #chapterContents A:visited, #chapterContents A:active {
+	color: #ffffff; 
+	text-decoration:none;
+}
+#chapterContents A:hover {
+	text-decoration:underline;
+}
+
+#chapterContents .t1 {
+	padding:1px 0px 1px 18px; 
+	display:none;
+}
+
+#chapterContents .sub {
+	vertical-align:-2px; 
+	font-size:75%;
+}
+#chapterContents .super {
+	vertical-align:4px; 
+	font-size:75%;
+}
+
+#chapterContents .na {
+	display:none;
+}
+
+#chapterContents .noBorder {
+	border:0px; 
+	padding:0 2px 2px 5px;
+}
+
+#chapterContents .noBordersupp {
+	border:0px; 
+	padding:0px 0px 2px 15px;
+}
+
+#chapterContents .sha {
+	padding:0 5px;
+}
+
+#chapterContents .shs {
+	border:1px solid #aaaaaa; 
+	color:#ffffff;
+}
+
+#chapterContents .shaD {
+	margin:2px 0;
+}
+
+#chapterContents .rq {
+	color:#000000;
+	font-weight:bold;
+	padding:0 3px 0 0;
+	border:0;
+}
+
+#chapterContents .suppLinkClass {
+	margin-left:15px;
+}
+
+#chapterContents .suppLinkTD {
+	border-width:0px;
+	padding-top:1px;
+	padding-bottom:1px;
+}
+
+/* Mostly for F/W titles */
+#chapterContents .sn {
+	color: #fff;
+	white-space:nowrap;
+	font-weight:bold;
+}
+
+#chapterContents .cn {
+	color: #fff;
+	font-weight:bold;
+	font-size:16px;
+	vertical-align:top;
+	border:0;
+	padding:1px 5px 5px 5px;
+}
+
+
+#chapterContents .ct {
+	color: #fff;
+	font-weight:bold;
+	font-size:12px;
+	vertical-align:top;
+	border:0;
+	padding:0px 0px 5px 0px;
+}
+
+#chapterContents .st {
+	color:#ffffff;
+}
+
+#chapterContents A.t3, #chapterContents A:hover.t3, #chapterContents A:visited.t3, #chapterContents A:active.t3 {
+	color: #ffffff;
+	font-weight:bold;
+	text-decoration:none;
+}
+#chapterContents A:hover.t3 {
+	text-decoration:underline;
+}
+
+#chapterContents table {
+	border-spacing:0;
+	border-collapse:collapse;
+	padding:0;
+	margin-top:2px;
+}
+
+#chapterContents td {
+	border-top:1px solid #ffffff;
+	
+	padding:2px 5px 2px 5px;
+	vertical-align:top;
+	margin:0px;
+	font-size:10px;
+	line-height:12px;
+	font-family:Verdana,sans-serif;
+	color:#ffffff;
+}
+
+/* Mostly for BSM titles */
+#chapterContents .parthead {
+	font-weight:bold;
+	}
+
+#chapterContents .ahead {
+	padding-left:13px;
+	padding-top:1px;
+	padding-bottom:1px;
+	margin-left:2.5em;text-indent:-2.5em;
+	margin-right:5px;
+}
+
+#chapterContents .bhead {
+	padding-left:26px;
+	padding-top:1px;
+	padding-bottom:1px;
+	margin-left:1.24em;
+	text-indent:-1.24em;
+}
+
+#chapterContents .directory {
+	padding-left:39px;
+	padding-top:1px;
+	padding-bottom:1px;
+	margin-left:1.24em;
+	text-indent:-1.24em;
+}
+
+/* ------------------------------------------------------------- */
+/* Main TOC styles */
+#mainTOC {
+	/* main TOC body */
+}
+
+#mainTOC #mainTOCcontentsHeading {
+	font-weight:bold;
+	font-size:24px;
+	font-family:Times, serif;
+	padding:10px 0 15px 15px;
+}
+
+#mainTOC .sn {
+	font-weight:normal;
+	white-space:nowrap;
+}
+
+#mainTOC .cn {
+	color:#000000;
+	font-weight:bold;
+	white-space:nowrap;
+}
+
+#mainTOC .ct {
+	color:#000000;
+	font-weight:bold;
+}
+
+
+#mainTOC .pn {
+	font-weight:bold;
+}
+
+
+#mainTOC td a {
+	font-weight:normal;
+	color: #000000;
+	text-decoration:none;
+}
+
+#mainTOC td a:hover {
+	text-decoration:underline;
+}
+
+
+#mainTOC a.t3 {
+	color: #d4472a;
+	text-decoration:none;
+}
+
+#mainTOC a:hover.t3 {
+	text-decoration:underline;
+}
+
+
+#mainTOC table {
+	border-spacing:0;
+	border-collapse:collapse;
+	padding:0;
+	margin-top:2px;
+}
+
+
+#mainTOC td {
+	vertical-align:top;
+	margin:0px;
+	padding:2px 0px 2px 5px;
+}
+
+#mainTOC .noBorder {
+	border:0px;
+	padding:0 2px 2px 5px;
+}
+
+#mainTOC .lev2secs {
+	border:0px;
+	padding:0px 0px 0px 5px;
+}
+
+#mainTOC .cttd {
+	padding-bottom:5px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+#mainTOC .dropdown {
+	padding-top:5px;
+}
+
+#mainTOC .subsection {
+	padding-left:15px;
+}
+
+#mainTOC .ctim {
+	padding-top:5px;
+}
+
+#mainTOC .plaintd {
+	border:0px;
+	padding:0px;
+}
+
+
+#mainTOC .t1 {
+	padding:1px 0px 1px 20px;
+}
+
+#mainTOC .t2 {
+	padding-left:15px;
+	padding-top:0px;
+}
+
+#mainTOC .cd {
+	display:none;
+	padding-left:25px;
+}
+
+#mainTOC .l2 {
+	padding-left:15px;
+}
+
+
+#mainTOC .rq {
+	color:#000000;
+	font-weight:bold;
+	padding:0 3px 0 0;
+	border:0;
+}
+
+#mainTOC .sr {
+	padding:0;
+	border:0;
+}
+
+#mainTOC .st {
+	margin:0;
+}
+
+
+#mainTOC .figureTOC {
+	padding:20px 0 0px 0px;
+	border-top:1px solid #666666;
+	text-align:center;
+}
+
+
+#mainTOC .partTitle {
+	padding:5px 0 5px 0;
+	font-weight:bold;
+	font-size:120%;
+	color:#e04423;
+	text-align:center;
+}
+
+
+/* ------------------------------------------------------------- */
+/* leftlinks styles */
+#leftlinks {
+	font-family:Verdana, sans-serif;
+	margin:2px 0 0 0px;
+	line-height:17px;
+	background-color: #FF9933;
+	color: #ffffff;
+	font-size:11px;
+	text-align:center;
+}
+
+#leftlinks A, #leftlinks A:hover, #leftlinks A:visited, #leftlinks A:active {
+	color: #ffffff;
+	font-size:11px;
+	font-weight:bold;
+	text-decoration:none;
+}
+#leftlinks A:hover {
+	text-decoration:underline;
+}
+
+/* ------------------------------------------------------------- */
+/* bannerleft styles */
+#bannerleft {
+	background-color: #EC9444; 
+	color:#ffffff;
+	margin:0px;
+	padding:0px;
+}
+
+#bannerleft td {
+	color:#fff;
+	font-family:Verdana, sans-serif;
+	font-size:12px;
+	padding:0 3px;
+}
+
+#bannerleft .bannerTitle {
+	font-weight:bold;
+	white-space:nowrap;
+}
+
+
+/* ------------------------------------------------------------- */
+/* bannerright styles */
+#bannerright {
+	background-color: #EC9444;
+	color:#ffffff;
+	margin:0px;
+	padding:0px;
+}
+			
+#bannerright form {
+	margin:0px;
+	padding:0px;
+}
+#bannerright A {
+	color:#ffffff;
+	font-weight:normal;
+	text-decoration:none;
+}
+#bannerright A:hover {
+	text-decoration:underline;
+}
+#bannerright td {
+	font-family:Verdana, sans-serif;
+	font-size:12px;
+	padding:0 3px;
+}
+#bannerright input {
+	font-family:Verdana;
+	font-size:12px;
+}
+
+/* ------------------------------------------------------------- */
+/* bannerminimize styles */
+/* (not used in all books) */
+#bannerminimize {
+	background-color: #355874;
+	color:#ffffff;
+	margin:0px;
+	padding:0px;
+}
+
+#bannerminimize A {
+	color:#ffffff;
+	font-weight:normal;
+	text-decoration:none;
+}
+#bannerminimize A:hover {
+	text-decoration:underline;
+}
+
+#bannerminimize td {
+	font-family:Verdana, sans-serif;
+	font-size:12px;
+	padding:0 3px;
+}
+
+/* ------------------------------------------------------------- */
+/* username styles */
+#usernamebody {
+	background-color: #CCFF99;
+	font-size:10px;
+	font-weight:bold;
+	font-family: Verdana, sans-serif;
+	text-align:center;
+	color: #000000;
+	margin-top:3px;
+} 
+	
+#usernamebody A {
+	color: #EC9444;
+	font-weight:bold;
+	text-decoration:none;
+}
+#usernamebody A:hover {
+	text-decoration:underline;
+}
+
+
+/* ------------------------------------------------------------- */
+/* supp styles */
+#suppbody {
+	background-color:#d3d3d3;
+	color:#000000;
+	margin:0px;
+	padding:0px;
+	font-size:14px;
+	font-family:Verdana, sans-serif;
+} 
+
+#suppbody A {
+	color:#666666;
+	text-decoration:none;
+}
+#suppbody A:hover {
+	text-decoration:underline;
+}
+
+#suppbody .bodydoublefigHolder2 {
+	margin-right:120px;
+	padding:10px 0 10px 10px;
+}
+
+
+#suppbody .outerDiv {
+	padding:10px;
+	background-color:#ffffff;
+	margin:0px 10px 10px 0px;
+}
+
+/* figures */
+#suppbody .figureR {
+	float:right;
+	margin:10px 5px 10px 10px;
+	padding:5px;
+	border:1px solid #000000;
+	background-color:#ffffff;
+	display:inline;
+}
+#suppbody .figureDL {
+	margin:0px 5px 0px 10px;
+	padding:5px;
+	border:1px solid #000000;
+	background-color:#ffffff;
+}
+#suppbody .figureDR {
+	margin:0px 0px 0px 5px;
+	padding:5px;
+	border:1px solid #000000;
+	background-color:#ffffff;
+}
+
+
+#suppbody .caption {
+	margin-top:5px;
+	font-size:83%;
+	font-family:Verdana, sans-serif;
+	text-align:left;
+}
+#suppbody .figureNumber {
+	color:#666666;
+}
+
+#suppbody .boxTitle {
+	background-color:#fd7038;
+	padding:5px;
+	font-weight:bold;
+}
+
+
+/* ------------------------------------------------------------- */
+/* suppbannerleft styles */
+#suppbannerleft {
+	background-color: #EC9444; 
+	color:#ffffff; 
+	margin:0px; 
+	padding:0px;
+}
+
+#suppbannerleft #suppbannerleftDiv {
+	position:absolute; 
+	background-color: #EC9444; 
+	width:40px;
+}
+
+
+/* ------------------------------------------------------------- */
+/* suppbannermiddle styles */
+#suppbannermiddle {
+	background-color: #EC9444;
+	color:#ffffff; 
+	margin:0px; 
+	padding:0px;
+}
+
+/* ------------------------------------------------------------- */
+/* suppbannerright styles */
+#suppbannerright {
+	margin:0; 
+	padding:0; 
+	background-color: #EC9444; 
+	background-repeat:no-repeat;
+} 
+
+#suppbannerright A {font-size: 11px;
+	font-family: Verdana, Arial, sans-serif;
+	font-weight:normal;
+	color:#ffffff;
+	text-decoration:none;
+}
+#suppbannerright A:hover {
+	text-decoration:underline;
+}
+#suppbannerright .na {
+	display:none;
+}
+
+/* ------------------------------------------------------------- */
+/* helpbanner styles */
+#helpbanner {
+	background-color: #EC9444;
+}
+
+/* ------------------------------------------------------------- */
+/* help styles */
+#help {
+	background-color:#ffffff;
+}
+
+/* ------------------------------------------------------------- */
+/* these styles, for the new toolbar, were formerly being written in toolbarAPI.js but Firefox didn't like that, so they're being declared here instead */
+#ebookToolsLink {background-color:#6695C6; color:#fff; position:fixed; bottom:0px; z-index:1000; font-family:Verdana; font-size:12px; height:26px;} #ebookToolsLink a {color:#fff; font-weight:normal; text-decoration:none} #ebookToolsLink a:hover {text-decoration:underline} #ebookToolsLink .toolsLinkShowing {left:0px; background-color:#6695C6; color:#fff; position:fixed; z-index:1000; font-family:Verdana; font-size:12px; height:26px;} #ebookToolsLink .toolsLinkHidden {right:0px; background-color:#6695C6; color:#fff; position:fixed; z-index:1000; font-family:Verdana; font-size:12px; height:26px;} 

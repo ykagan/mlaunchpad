@@ -1,0 +1,763 @@
+/* This is a place to put custom styles for a particular book */
+/* Note that you can usually override aspects of styles defined
+   in mainstyles.css by putting !important at the end of the definition */
+/* KC 12/15/2008 !important doesn't seem to work in IE6; instead, we're
+   now overriding styles by placing bookstyles.css after mainstyles.css in
+   the sections files. */
+
+
+.chapNo {
+    vertical-align:  middle;
+}
+
+.chapTitle {
+    vertical-align:  bottom;
+    padding: 20px;
+    font-size:  3em;
+    font-weight:  bold;
+}
+
+/* first letter of each chapter, line-height, font-size, imp */
+.firstLetter {
+    font-weight: bold;
+    font-family: arial;
+    font-size: 7em;
+    float: left;
+    display:inline;
+    /* line-height: 0.8em; */
+    /* padding: 15px 2px;  */
+    /* margin: -28px 5px -28px 0px;  */
+    line-height: 1.2em;
+    padding: 20px 2px 2px 2px;
+    margin: -50px 5px -30px -5px;
+    color: #E36638;
+    text-align: left;
+}
+.firstLetterP1 {
+    font-weight: bold;
+    font-family: arial;
+    font-size: 7em;
+    float: left;
+    display:inline;
+    /* line-height: 0.8em; */
+    /* padding: 15px 2px;  */
+    /* margin: -28px 5px -28px 0px;  */
+    line-height: 1.2em;
+    padding: 20px 2px 2px 2px;
+    margin: -50px 5px -30px -5px;
+    color: #E36638;
+    text-align: left;
+}
+
+.term_definition  {
+    display: none;
+}
+
+.reference  {
+    background-color:#ffffff;
+    color: #0075AB;
+    border: 2px solid #0075AB;
+    
+}
+
+div.refLong p.refLongBlue  {
+    background-color:#ffffff;
+    color: #0075AB;
+    font-size: 1.1em;
+}
+div.refLong p.refLongBlack  {
+    background-color:#ffffff;
+    color: #000000;
+    font-size: .80em;
+    
+    text-align: right;
+}
+.noteLong  {
+    background-color:#ffffff;
+    color: #8F355D;
+    font-size: 1.1em;
+}
+.note  {
+    background-color:#ffffff;
+    color: #8F355D;
+    border: 2px solid #8F355D;
+}
+
+.figCredit {
+    font-size: 75%;
+    text-align: left;
+}
+.figureR {
+    border:  2px solid #008D6E;
+}  
+.figureL {
+    border:  2px solid #008D6E;
+    padding-right:  25px;
+    margin-right:  25px;
+}  
+.figureDR {
+    border:  2px solid #008D6E;
+}  
+.figureDL {
+    border:  2px solid #008D6E;
+}  
+
+.figureF {
+    border:  4px solid #8F355D;
+    margin: 15px auto;
+    padding: 10px;
+}
+/* div.refRt div.margintext.reference div.margintextContent p {**this is wrong**/
+div.figM .figureR {
+    position:relative;
+    float:right;
+    left:100px; 
+    margin: 0px 30px 30px 15px;  
+    padding:10px 10px 10px 10px;
+}
+div.figP .figureR {
+    position:relative;
+    float:right;
+    left:10px; 
+    margin: 0px 30px 10px 15px;  
+    padding:10px 10px 10px 10px;
+}
+div.figtableRt1 .figureR {
+    position:relative;
+    float:right;
+    left:400px; 
+    margin: 0px 30px 30px 25px;  
+    padding:10px 10px 10px 10px;
+}
+div.figtableRt2 .figureR {
+    position:relative;
+    float:right;
+    left:400px; 
+    margin: 30px 30px 30px 25px;  
+    padding:10px 10px 10px 10px;
+}
+div.figtableRt3 .figureR {
+    position:absolute;
+    float:right;
+    left:580px; 
+    margin: 30px 30px 30px 25px;  
+    padding:10px 10px 10px 10px;
+}
+/* div.figTrio .figureR {
+    position:absolute;
+    float:right;
+    left:200px; 
+    
+} */
+/* align reference next to box */
+/* .refRt  {
+    background-color:#ffffff;
+    color: #0075AB;
+    border: 2px solid #0075AB;
+    position:relative;
+    float:right;
+    left:150px; 
+    padding:0px 5px 0px 5px;
+    font-size: 0.9em;
+    margin: -77px -155px 0px -15px;
+    width: 250px;
+}  */
+.refRtB  {
+    background-color:#ffffff;
+    border: 2px solid #0075AB;
+    position:relative;
+    float:right;
+    left:110px; 
+    padding:0px 5px 0px 5px;
+    margin: -85px -105px 0px -15px;
+    width: 200px;
+}
+.refRtB p.refLongBlueB  {
+    background-color:#ffffff;
+    color: #0075AB;
+    font-size: 1em;
+}
+.refRtB p.refLongBlackB  {
+    background-color:#ffffff;
+    color: #000000;
+    font-size: .95em;
+    
+}
+
+/* align note next to box */
+.NoteRt  {
+    background-color:#ffffff;
+    color: #8F355D;
+    border: 2px solid #8F355D;
+    position:relative;
+    float:right;
+    left:150px; 
+    padding:0px 5px 0px 5px;
+    font-size: 0.9em;
+    /* margin: -77px -155px 0px -15px; */
+    margin: -220px -120px 0px 0px;
+    width: 250px;
+}
+
+.refRtImg  {
+    background-color:#ffffff;
+    color: #0075AB;
+    border: 2px solid #0075AB;
+    position:relative;
+    float:right;
+    left:150px; 
+    padding:0px 5px 0px 5px;
+    font-size: 0.9em;
+    margin: -177px -125px -25px 75px;
+    width: 225px;
+}
+
+
+/****Lists**** after demo, somehow didn't work***/
+ul.bulletList {
+	list-style-image: url(../pics/pink.jpg);
+        list-style-position:outside;
+	margin: 0px 0px 1em 0px;
+	padding-left: 1.5em;
+}
+
+/* .bulletList {
+	list-style-type:disk;
+	color:#8F355D;
+	list-style-position:outside;
+	margin: 0px 0px 1em 0px;
+	padding-left: 1.5em;
+        
+} */
+
+ ul.bulletList li {
+	color:#000000;
+	margin:0;
+        padding-bottom: .9em;
+}
+
+ul.bulletList p {
+	color:#000000;
+	margin:0;
+}  
+
+
+
+
+/* this works for other than the purple bullets */
+ul.bulletListEx {
+	/* list-style-type:disk;  */
+        list-style-type: none;
+	list-style-image: url(../pics/blackdot.jpg);
+	color:#000000;
+	list-style-position:outside;
+	margin: 0px 0px 1em 0px;
+	padding-left: 2.5em;
+
+}
+
+/* list styles  - after demo, used these */
+ul, ol {
+	margin-left: 25px;
+}
+
+ul.unnumbered {
+	list-style-type: none;
+	margin-left: 15px;
+}
+ul.bullet {
+	list-style-image: url(../pics/pink.jpg);
+        list-style-position:outside;
+	margin: 0px 0px 1em 0px;
+	padding-left: 1.5em;
+}
+/* bold the numbers on OLs */
+ol p {
+	font-weight: normal;
+}
+
+ol {
+	font-weight: bold;
+}
+
+
+/* super subscripts */
+sub {
+    font-size: 75%;
+    vertical-align: -0.3em;
+}
+
+sup {
+    font-size: 75%;
+    vertical-align: 0.3em;
+}
+
+
+#mainContent .bulletListEx p {
+	color:#000000;
+	margin-bottom:.5em;
+}
+
+#suppbody .bulletListEx p {
+	color:#000000;
+	margin-bottom:.5em;
+}
+
+.blockquote {
+    text-align: justify;
+    margin: 0px 50px 0px 25px;
+    padding: 0px;
+    font-family: verdana;
+    font-size:95%;
+}
+
+.blockquoteSmall {
+    text-align: justify;
+    margin: 0px 50px 0px 25px;
+    padding: 0px;
+    font-family: verdana;
+    font-size:90%;
+}
+
+
+.blockquoteDial {
+    font-size:95%;
+    margin: 0px 50px 0px 25px;
+    text-align: justify;
+}
+.dialogue{
+    margin-left: 0px;
+    margin-right: 0px;
+    text-align: justify;
+}
+.dialText{
+    text-align: justify;
+    margin: 0px 50px 0px 25px;
+    padding: 0;
+    font-family: verdana;
+}
+/* format objective  */
+ .objective {
+    background-color:  #FFFFFF;
+    border:none;
+    /* margin:  10px 80px 10px 68px; */
+    margin:  0px 0px 0px 28px;
+    padding: 0px 0px 0px 0px; 
+    font-weight: bold;
+   /* width:  300px;  here no good in IE6 */
+} 
+p.objective {
+    background-color:  #FFFFFF;
+    border:none;
+    /* margin:  10px 80px 10px 68px; */
+    margin:  22px 0px 0px 0px;
+    padding: 0px 0px 0px 0px; 
+    font-weight: bold;
+   /* width:  300px;  here no good in IE6 */
+}
+.obj_nospace {
+  padding: 0px 0px 0px 8px;
+  margin-bottom: -23px;
+}
+.obj_space {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.lo_space {
+  margin:  25px 15px 15px 12px;
+}
+.obj_con {
+    /* margin:  -35px 5px 55px -25px; */
+     margin:  -40px 0px -15px 25px;
+     
+} 
+span.obj_con {
+    /* margin:  -35px 5px 55px -25px; */
+     margin:  -48px 0px -14px 25px;
+}
+
+ div.obj_img {
+     margin: -48px 5px -22px 8px;
+     padding: -40px 0px -25px 0px;
+}   
+ .obj_text {
+    font-size: 1.2em;
+    /*  width:  195px;   -removed -jc  */
+    /* margin: -9px 0px 15px 5px; -org */
+    margin: -9px 0px 15px 15px;
+    padding: 10px 0px 15px 0px;
+} 
+
+.obj_num {
+    background-color:  #FFFFFF;
+    color: #E36957;
+    border:  2px solid #B8D056; 
+    padding: 3px 3px 3px 3px;
+    margin:  -35px 5px 55px 56px; 
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+ .obj_textB {
+    font-size: 1.2em;
+    margin: -9px 0px 15px 15px;
+    padding: 10px 0px 15px 0px;
+} 
+
+.obj_numB {
+    background-color:  #FFFFFF;
+    color: #E36957;
+    border:  2px solid #B8D056; 
+    padding: 3px 3px 3px 3px;
+    margin:  5px 0px 5px 0px; 
+    font-weight: bold;
+    font-size: 1.3em;
+}
+/* .obj_conB {
+    margin:  -48px 0px -15px 25px;
+     
+} */
+p.objectiveB {
+    background-color:  #FFFFFF;
+    border:none;
+    margin:  30px 0px 30px 0px;
+    padding: 0px 0px 0px 0px; 
+    font-weight: bold;
+}
+
+.learnText {
+    text-indent: 10em;
+} 
+p.refs {
+    text-indent: -2em;
+}
+div.indent {
+    text-indent: 1.5em;
+}  
+
+div.dialogue {
+   padding-left: 0pt;
+   padding-right: 0pt;
+   font-family: verdana;
+   font-size:95%;
+} 
+
+.learnNum {
+    color: #0075AB;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+/* .subSecTitle {
+  color: #008D6E;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  vertical-align:  bottom;
+}
+ .subSecNum {
+    display: none;
+}
+.secNum {
+    display: none;
+} 
+.secTitle {
+  font-weight: bold;
+  font-size: 2em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  vertical-align:  bottom;
+}  */
+.secTitle, .secNum {
+  font-weight: bold;
+  font-size: 1.6em;
+}
+.subSecTitle, .subSecNum {
+  color: #008D6E;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.chead {
+  color: #235E97;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Appendix  */
+.subhead{
+	color:#3F4785;
+	font-weight:bold;
+        font-size: 1em;
+}	
+.appBchead {
+	color:#000000;
+	font-weight:bold;
+        font-size: 1.5em;
+}	
+
+.appBdhead {
+	color:#E7783D;
+	font-weight:bold;
+        font-size: 1.1em;
+}	
+
+.appNum {
+	color:#8F355D;
+	font-weight:bold;
+        
+}	
+
+
+
+
+.refsChead {
+  color: #235E97;
+  font-weight: bold;
+  font-size: 140%;
+}
+
+.retPrac  {
+    background-color:#ffffff;
+    border-top: 2px solid #D6DEC2;
+    border-bottom: 2px solid #D6DEC2;
+    border-right: 2px solid #D6DEC2;
+    border-left: 15px solid #D6DEC2;
+}  
+.retPrac   .boxHeading {
+    background-color: #ffffff;
+}  
+
+
+/* unnumbered sections learning obj and key terms */
+div.boxSummary div.boxSummaryTitle span.boxSummaryTitleSpan {
+  padding: 15px 5px 15px 5px; 
+   /*border-bottom: solid 2px #FEC20F; */
+  font-weight: bold;
+  font-size: 1.5em;
+  /* background-color: #ffe3a5; */
+  /* background-color: #FAF5E1;*/
+  /* color: #f57921; */
+  color: #E0533E;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* unnumbered sections learning obj and key terms */
+div.boxSummary {
+  border: none;
+  margin: 10px 0 0 0;
+  background-color: #fff;
+  padding-bottom: 5px;
+}
+
+/* unnumbered sections learning obj and key terms, here controls the width of the bg color */
+div.boxSummary div.boxSummaryTitle {
+  background-color: #FAF5E1;
+  padding: 0 0 2px 0;
+  margin: 0;
+  width: 525px;
+  vertical-align: middle;
+  padding-left:15px;
+  border-bottom: solid 2px #FEC20F;
+}
+
+
+
+
+/* these two elements needed for interactive button show answer */
+.solutionText {
+    border-top: solid 1px #000;
+    border-bottom: solid 1px #000;
+    padding: 5px;
+    margin-top:5px 0px;
+    display: none;
+    background-color: #eee;
+}
+
+.solutionAnswerHead {
+    color: #1b7537;
+    font-weight:bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.solutionAns {
+    /* margin-top:5px 0px; */
+    padding: 5px 5px 5px 0px;
+    
+}
+/* Show/Hide answer links */
+.dqtl {
+    margin: 5px 0px;
+}
+
+
+
+
+/* format close up box */
+.closeUp {
+    background-color:  #ffffff;
+   /*  border-top: 2px solid #9E733C; */
+    border-left: 3px solid #9E733C;
+    border-right: 3px solid #9E733C;
+    border-bottom: 3px solid #9E733C;
+    /*  padding: 0px 10px 13px 10px;  */
+    /*  margin: -3px 0px 0px 0px;  */
+    padding: 0px 10px 13px 10px;
+    /* margin: -13px 0px 0px 0px; */
+    margin: -10px 0px 0px 0px; 
+    position: relative;
+    zoom: 1;
+}
+.thinking {
+    background-color:  #ffffff;
+   /*  border-top: 2px solid #9E733C; */
+    border-left: 3px solid #9E733C;
+    border-right: 3px solid #9E733C;
+    border-bottom: 3px solid #9E733C;
+    /*  padding: 0px 10px 13px 10px;  */
+    /*  margin: -3px 0px 0px 0px;  */
+    padding: 0px 10px 13px 10px;
+    /* margin: -13px 0px 0px 0px; */
+    margin: -10px 0px 0px 0px; 
+    position: relative;
+    zoom: 1;
+}
+.closeUpTitle {
+    background-color:  #FAF5E1;
+    color:  #3F4785;
+    font-size:  1.9em;
+    font-weight:  bold;
+    text-align: left;
+    /*  padding: 9px 9px 8px 27px;  */
+    /*  margin:  -15px -10px -10px -9px;  */
+    padding: 4px 7px 8px 25px;
+    /* margin:  -2px -10px -10px -9px; */
+    margin:  -1px -10px -10px -9px;
+    font-family: menlo;
+}
+.thinkingTitle {
+    background-color:  #FAF5E1;
+    color:  #635F2A;
+    font-size:  1.9em;
+    font-weight:  bold;
+    text-align: left;
+    /*  padding: 9px 9px 8px 27px;  */
+    /*  margin:  -15px -10px -10px -9px;  */
+    padding: 4px 7px 8px 25px;
+    /* margin:  -2px -10px -10px -9px; */
+    margin:  -1px -10px -10px -9px;
+    font-family: menlo;
+}
+.closeUpBody { 
+   color: #000000;
+   font-size:  1.1em; 
+   padding: 5px 10px 0px 10px;
+   margin:  15px;
+   font-family: menlo;
+}
+.thinkingBody { 
+   color: #000000;
+   font-size:  1.1em;   
+   padding: 5px 10px 0px 10px;
+   margin:  15px;
+   font-family: menlo;
+}
+h3 {
+     color:  #EC9444;
+     font-weight:bold;
+}
+/* format background shade for numbered figure captions */
+div.caption {
+     background-color:  #F3E9D9;
+     
+}
+div.caption .fig_title {
+     background-color:  #F3E9D9;
+     font-weight:bold;
+}
+
+ img {
+    position: relative;  
+}  
+
+.cheadTitle {
+     color:  #3F4785;
+     font-weight:bold;
+     font-size: 120%;
+}
+
+.objnum {
+     color:  #3F4785;
+     font-weight:bold;
+     
+}
+/* .cheadLearning {
+	font-weight: bold;
+	padding:5px 0;
+	color: #0075AB;
+	border: 0;
+	width: 535px;
+} */
+.cheadLNum {
+	/* padding-top: 5px;  */
+	/*float: left; */
+	/* width: 8%;  */
+        color: #0075AB;
+}
+
+.cheadLTitle {
+	border: 0;
+	/* float: right; */
+	text-align: left;
+	/* width: 92%; */
+}
+.dhead {
+     color:  #8F355D;
+     font-weight:bold;
+     
+}
+
+
+/*This changes the glossary/notes pop up windows background color-jc */
+/* .popInWindowS,
+#popInBody_n {
+    color: #000;
+    background-color: #D3EEFA !important;
+} */
+.popInWindowS,
+#popInBody_n {
+	color: #000;
+	background-color: #d5e6ee !important;
+}
+
+.popInTitleS {
+	color: #fff;
+	background-color: #5d1403;
+}
+
+.popInCloseLinkS {
+	color: #f4b44e;
+}
+
+.footnote {
+    font-size:  0.8em;
+}
+
+ .image {
+    border: medium none;
+    left: 600px;
+    position: absolute;
+    width: 53px;
+}
+
+/*  this font does not work in IE6  */
+/* .diffFont {
+    font-family: monaco;
+    font-size: 14px;
+}  */
+
+#ebookToolsLink {
+    margin-left: 155px;
+}
+

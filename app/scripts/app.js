@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('cgAngularApp', ['ui.router', 'ngCookies'])
+angular.module('cgAngularApp', ['ui.router', 'ngCookies','ngResource', 'ngAnimate'])
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$stateProvider
 			.state('login', {
@@ -13,12 +13,6 @@ angular.module('cgAngularApp', ['ui.router', 'ngCookies'])
 				abstract: true,
 				templateUrl: 'views/main.html',
 				controller: 'MainCtrl'
-			})
-			.state('main.contentbrowser', {
-				url: "",
-				views: {
-					"contentbrowser@main": {templateUrl: 'views/contentbrowser.html' }
-				}
 			})
 			.state('main.contentviewer', {
 				url: "/contentviewer/:container/:item",

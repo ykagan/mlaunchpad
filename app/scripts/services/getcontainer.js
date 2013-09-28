@@ -1,144 +1,71 @@
 'use strict';
 
 angular.module('cgAngularApp')
-  .factory('Container', function Container() {
+  .factory('Container', function Container(Items, $rootScope, $cacheFactory) {
+		var cache = $cacheFactory('Getcontainer');
+		var GetItem = function (itemid) {
+				var item = cache.get("GetItem_" + itemid);
+				if (!item) {
+					var item = Items.getitem({
+						itemid: itemid,
+						entityid: $rootScope.course.id
+					});
+					cache.put("GetItem_" + itemid, item);
+				}
+				return item;
+			};
+			var Getcontainer = function(container, subcontainer, toc){
+				var query = "/meta-containers/meta-container='" + container + "' AND /meta-subcontainers/meta-subcontainerid='" + subcontainer + "'";
+	            var items = cache.get("Getcontainer_" + query);
+	            if(!items)
+	            {
+		            items = Items.getitems({
+			            query: query,
+			            entityid: $rootScope.course.id
+		            });
+		            items.$promise.then(function(){
 
-		var item1 = {
-			Id: "ITEM1_ID",
-			Title: "Content Item 1",
-			Description: "this is a content item",
-			ImageUrl: "",
-			Url: "content/introduction.htm",
-			Toc: "syllabusfilter",
-			Container: "Launchpad",
-			Subcontainer: "PX_MULTIPART_LESSONS",
-			Parent: "PX_MULTIPART_LESSONS",
-			Sequence: "a",
-			Children: [],
-			Level: 1,
-			CanHaveChildren: false
-		};
-		var item2 = {
-			Id: "section1_1",
-			Title: "Section 1.1",
-			Type: "ExternalContent",
-			Url: "content/introduction.htm",
-			Toc: "syllabusfilter",
-			Container: "Launchpad",
-			Subcontainer: "CHAPTER1_ID",
-			Parent: "CHAPTER1_1",
-			Sequence: "a",
-			Children: [],
-			Level: 3,
-			CanHaveChildren: false
-		};
-		var chapter1 = {
-			Id: "CHAPTER1_ID",
-			Title: "Chapter 1",
-			Description: "This is chapter 1",
-			ImageUrl: "/images/chapter.png",
-			Toc: "syllabusfilter",
-			Container: "Launchpad",
-			Subcontainer: "PX_MULTIPART_LESSONS",
-			Parent: "PX_MULTIPART_LESSONS",
-			Sequence: "a",
-			Level: 1,
-			Children: [],
-			CanHaveChildren: true
-		};
-		var chapter1_1 = {
-			Id: "CHAPTER1_1",
-			Title: "Section 1",
-			Type: "PxUnit",
-			Toc: "syllabusfilter",
-			Container: "Launchpad",
-			Subcontainer: "CHAPTER1_ID",
-			Parent: "CHAPTER1_ID",
-			Sequence: "a",
-			Level: 2,
-			CanHaveChildren: true
-		};
-		return  {
-            Getcontainer: function(container, subcontainer, toc){
-                if(subcontainer == "PX_MULTIPART_LESSONS")
-                {
+			            //set up structure for convenience
+			            angular.forEach(items, function(item){
+				           item.Children = $.grep(items, function(child) {return child.Parent == item.Id});
+				           //angular.forEach(item.Children, function(child){child.ParentItem = item});
+			            });
 
-                    return [
-	                    chapter1,
-	                   item1,
-                        {
-                            Id: "CHAPTER2_ID",
-                            Title: "Chapter 2",
-                            Description: "This is chapter 2",
-                            ImageUrl: "/images/chapter.png",
-                            Toc: "syllabusfilter",
-                            Container: "Launchpad",
-                            Subcontainer: "PX_MULTIPART_LESSONS",
-                            Parent: "PX_MULTIPART_LESSONS",
-                            Sequence: "a",
-                            Level: 1,
-                            Children: [],
-	                        CanHaveChildren: true
-                        },
-                        {
-                            Id: "CHAPTER3_ID",
-                            Title: "Chapter 3",
-                            Description: "This is chapter 3",
-                            ImageUrl: "/images/chapter.png",
-                            Toc: "syllabusfilter",
-                            Container: "Launchpad",
-                            Subcontainer: "PX_MULTIPART_LESSONS",
-                            Parent: "PX_MULTIPART_LESSONS",
-                            Sequence: "a",
-                            Level: 1,
-                            Children: [],
-	                        CanHaveChildren: true
-                        }
-                    ];
+			            //set levels and sequencing
+			            var rootItems = $.grep(items, function (item) {return item.Parent == subcontainer || item.Parent == "PX_MULTIPART_LESSONS"});
+			            var level = subcontainer.length ? 2 : 1;
+			            var parentContainerItem = subcontainer.length ? GetItem(subcontainer) : null;
+			            var setChildrenLevels = function(children, level, parent_sequence, parentItem)
+			            {
+				            if(children)
+				            {
+					            angular.forEach(children, function (child) {
+						            child.Level = level;
+						            child.Sequence = parent_sequence + child.Sequence;
+						            child.ParentItem = parentItem;
+						            setChildrenLevels(child.Children, level + 1, child.Sequence, child);
+					            });
+				            }
+			            };
+			            setChildrenLevels(rootItems, level, "", parentContainerItem);
 
-                }
-                else if(subcontainer == "CHAPTER1_ID"){
-                    return [
-                        chapter1_1,
-                        item2,
-                        {
-                            Id: "CHAPTER1_2",
-                            Title: "Section 2",
-                            Type: "PxUnit",
-                            Toc: toc,
-                            Container: container,
-                            Subcontainer: subcontainer,
-                            Parent: "CHAPTER1_ID",
-                            Sequence: "a",
-                            Level: 2,
-	                        CanHaveChildren: true
-                        }
-                    ];
-                }
-            },
+			            items.sort(function (a, b) {
+				            return ((a.Sequence < b.Sequence) ? -1 : ((a.Sequence > b.Sequence) ? 1 : 0));
+			            });
+			            angular.forEach(items, function(item)  {
+				            item.$promise = {
+					          then: function(callback){callback();}
+				            };
+				            cache.put("GetItem_" + item.Id, item);
+			            });
+		            });
+		            cache.put("Getcontainer_" + query, items);
+	            }
 
-	        GetItem: function(itemId)
-	        {
-		        if(itemId == 'ITEM1_ID')
-		        {
-			        return item1;
-		        }
-		        else if (itemId == "section1_1")
-		        {
-			      return item2;
-		        }
-		        else if(itemId =="CHAPTER1_ID")
-		        {
-			        return chapter1;
-		        }
-		        else if(itemId == "CHAPTER1_1")
-		        {
-			        return chapter1_1;
-		        }
-		        else
-		        {
-			        return null;
-		        }
+	            return items;
+            };
+			return  {
+				GetItem: GetItem,
+				Getcontainer: Getcontainer
 	        }
-        }
     });
