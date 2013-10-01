@@ -1,24 +1,40 @@
 'use strict';
 
 angular.module('cgAngularApp' )
-  .factory('Account', function Account($http, $rootScope, $cookieStore) {
+  .factory('Account', function Account($http, $rootScope, $cookieStore, $serverConfig ) {
         return {
             Auth: function (username, password){
-                if(username.length > 0 && password == username)
-                {
-                    $rootScope.user = {
-                        username: username,
-                        password: password,
-                        accessLevel: "student",
-                        id: "userId1",
-                        loggedIn: true
-                    };
-                    $cookieStore.put('user', $rootScope.user);
-	                //GET COURSES HERE
+	            if (username.length && password.length) {
+		            var User = $http.post($serverConfig.DlapServer,
+			            {
+				            request:
+				            {
+					            cmd: "login",
+					            username: username,
+					            password: password
+				            }
+			            });
+		            User.success(function(data, status){
+						if(data.response.code == "OK"){
+							User.loggedIn = true;
+							angular.extend(User,  data.response);
+							User.accessLevel = "student";//TODO: this comes from RA
 
-                    return true;
+							$cookieStore.put('user', User);
+							$cookieStore.put('token', User._token);
+						}
+			            else
+						{
+							User.loggedIn = false;
+						}
+		            });
+
+	                $rootScope.user = User;
+
+
+	                return User;
                 }
-                return false;
+                return null;
             },
             isLoggedIn: function()
             {
@@ -26,6 +42,10 @@ angular.module('cgAngularApp' )
                 if(user != null)
                 {
                     $rootScope.user = user;
+	                //GET COURSES HERE
+	                $rootScope.course = {
+		                id: "137770"
+	                }
                 }
 
                 return $rootScope.user != null && $rootScope.user.loggedIn;

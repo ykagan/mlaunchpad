@@ -1,8 +1,9 @@
+<link src="styles/contentbrowser1.css" type="text/css" />
 <div ng-controller="ContentbrowserCtrl" class="ng-cloak">
 	<ul class="list-group contentBrowserTree">
-		<li ng-repeat="item in rootItems" class="list-group-item lp-root-item"
+		<li ng-repeat="item in rootItems" class="list-group-item lp-root-item lp-root-item-image"
 		    ng-class="{activeItem: $state.params.item == item.Id, openItem: item.State == 'open'}"
-		    style="background-image: url('http://www.worthpublishers.com{{item.ImageUrl}}');">
+		    style="background-image: url('{{item.ImageUrl}}');">
 			<a ng-click="toggleChapter(item)"
 					class="list-group-item-heading" >
 				<h3><span>{{item.Title}}</span> </h3></a>
@@ -13,7 +14,7 @@
 				</p>
 				<a ng-repeat="child in item.Children" class="list-group-item animate-show"
 				   ng-class="{activeItem: $state.params.item == child.Id, openItem: child.State == 'open'}"
-				   ng-click="clickNode(child)" ng-show="child.ParentItem.State == 'open'"
+				   ng-click="clickNode(child)" ng-show="child.ParentItem.State == 'open'" 
 				   style="padding-left:{{ (child.Level-1)*20 }}px">
                         <span class="glyphicon " ng-show="child.CanHaveChildren"
                               ng-class="{'glyphicon-chevron-down': child.State == 'open', 'glyphicon-chevron-right': child.State == 'closed'}"></span>

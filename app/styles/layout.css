@@ -1,0 +1,77 @@
+.body
+{
+	background-color: #ddd;
+}
+
+
+.content-viewer {
+	/*full window*/
+	height: 100%;
+	padding: 10px;
+	width:100%;
+	min-width: 50%;
+}
+.offcanvas
+{
+	position:relative;
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
+}
+
+.scrollable
+{
+	height: 100%;
+	overflow: auto;
+}
+.sidebar-offcanvas.offcanvas
+{
+	left:-90%;
+}
+
+.sidebar-offcanvas.offcanvas.active {
+	left: 0;;
+}
+
+.container.offcanvas
+{
+	left:0;
+}
+.container.offcanvas.active
+{
+	left: 90%;
+}
+
+.navbar.offcanvas.active
+{
+	margin-left:90%;
+}
+
+.content-view
+{
+	height: 1000%;
+	width:100%;
+	overflow: autp;
+	border:0px;
+	margin:0px;
+	padding: 0px;
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+}
+
+
+@media screen and (max-width: 768px) {
+	.content-viewer {
+		/*full window*/
+		width: 100%;
+	}
+}
+
+.content-view-wrapper {
+	height: 100%;
+}
+
+.content-view {
+	width: 100%;
+	height: 100%;
+}

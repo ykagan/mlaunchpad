@@ -4,7 +4,6 @@ body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
-    margin-top:50px;
 }
 
 .hero-unit {
@@ -27,98 +26,17 @@ body {
 a {
     cursor: pointer;
 }
-.lp-root-item.list-group-item{
-	padding: 0px;
-	min-height:200px;
+.lp-root-item-image
+{
+	min-height: 200px;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
-.lp-root-item .list-group-item-heading h3
+.thumbnail
 {
-	margin-top: 0px;
-	bottom: 0;
-	top:0;
-	padding:5px;
-	width:100%;
-
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#61191C), to(rgba(0, 0, 0, 0.23)));
-
+	-webkit-transition: none;
+	transition: none;
 }
 
-.lp-root-item .list-group-item-heading:hover h3
-{
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(224, 255, 0, 0.44)), to(#FFFFFF));
-}
-
-.lp-root-item .list-group-item-heading h3 span
-{
-	color:white;
-	font: bold 24px/45px Helvetic, Sans-Serif;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: -1px;
-	line-height: 24px;
-}
-
-.lp-root-item .list-group-item-heading:hover h3 span {
-	color: black;
-}
-.lp-root-item .list-group-item-text
-{
-	background-color: darkslategray;
-}
-
-a.activeItem,
-a.activeItem:hover
-{
-	background-color: rgb(180, 180, 229);
-
-}
-.activeItem > a,
-.activeItem:hover > a
-{
-	color: white;
-	cursor: default;
-}
-.openItem
-{
-	background-color: darkslategray;
-	color: white;
-}
-
-.children .openItem,
-.children .openItem:hover
-{
-	background-color: darkslategray;
-	color:white;
-}
-.openItem > a {
-	 color: white;
-}
-
-.content-viewer {
-	/*full window*/
-	height: 100%;
-	padding:10px;
-	width: 65%;
-	float: right;
-}
-@media screen and (max-width: 768px)
-{
-	.content-viewer {
-		/*full window*/
-		width: 100%;
-	}
-}
-
-.content-view-wrapper
-{
-	height: 100%;
-}
-.content-view
-{
-	width:100%;
-	height:100%;
-}

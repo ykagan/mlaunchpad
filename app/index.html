@@ -15,11 +15,13 @@
     <link rel="stylesheet" href="bower_components/toastr/toastr.css">
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/bootstrap-theme.css">
+	<link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/signin.css">
-	  <link rel="stylesheet" href="styles/animations.css">
-	  <link rel="stylesheet" href="styles/offcanvas.css">
-        <!-- endbuild -->
+	<link rel="stylesheet" href="styles/animations.css">
+	<link rel="stylesheet" href="styles/offcanvas.css">
+
+	    <!-- endbuild -->
 </head>
   <body ng-app="cgAngularApp">
     <!--[if lt IE 7]>
@@ -34,7 +36,7 @@
     <!-- Add your site or application content here -->
     <div ng-include src="'views/topnav.html'">
 	    </div>
-    <div class="container" ui-view>
+    <div ui-view>
 
     </div>
 
@@ -53,13 +55,15 @@
     <script src="bower_components/jquery/jquery.js"></script>
     <!--<script src="bower_components/underscore/underscore.js"></script>-->
 
+    <!-- build:js({.tmp,app}) scripts/libs.js -->
     <script src="bower_components/toastr/toastr.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-
+    <!--<script src="bower_components/angular-momentum-scroll/scrollable.js"></script>-->
+    <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
@@ -73,6 +77,9 @@
         <script src="scripts/services/getcontainer.js"></script>
         <script src="scripts/services/getitems.js"></script>
         <script src="scripts/services/logger.js"></script>
+        <script src="scripts/services/serverConfig.js"></script>
+
+        <script src="scripts/directives/scrollIf.js"></script>
         <!-- endbuild -->
 </body>
 </html>

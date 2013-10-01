@@ -1,14 +1,15 @@
 
-	<div class="row row-offcanvas row-offcanvas-left" ng-class="{active: $parent.showContentBrowser}">
-		<div class="col-xs-8 col-sm-4 sidebar-offcanvas" role="navigation" id="sidebar">
+	<div class="row " >
+		<div class="sidebar-offcanvas offcanvas scrollable" role="navigation" id="sidebar"
+		     ng-class="{active: $parent.showContentBrowser}">
+				<!--<ul class="nav nav-pills nav-justified">-->
+					<!--<li class="active"><a>LaunchPad</a></li>-->
+					<!--<li><a>eBook</a></li>-->
+				<!--</ul>-->
 			<div class="well sidebar-nav">
-				<ul class="nav">
-					<li>LaunchPad</li>
-					<li>
-						<div ui-view="contentbrowser"></div>
-					</li>
-				</ul>
+				<div ui-view="contentbrowser" ></div>
 			</div>
 		</div>
-		<div class="row" ui-view="contentviewer" ng-animate="'contentbrowser'"></div>
+		<div class="container offcanvas" ui-view="contentviewer"
+		     ng-class="{active: $parent.showContentBrowser}"></div>
 	</div>

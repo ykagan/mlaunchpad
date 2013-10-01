@@ -6,14 +6,18 @@ angular.module('cgAngularApp')
         username: "",
         password: ""
     };
+	$scope.loading = false;
     $scope.login = function ()
     {
-        var authSuccessful = Account.Auth($scope.user.username, $scope.user.password);
-        if(authSuccessful)
-        {
-            alert("success!");
-	        $state.go('main');
-        }
+	    $scope.loading = true;
+        var User = Account.Auth($scope.user.username, $scope.user.password);
+	    User.then(function(data){
+		    $scope.loading = false;
+		    if (Account.isLoggedIn()) {
+			    $state.go('main.contentbrowser');
+		    }
+		});
+
     }
 
 	if(Account.isLoggedIn())

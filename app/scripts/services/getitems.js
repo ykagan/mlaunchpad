@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cgAngularApp')
-	.factory('Items', function Items($resource, $logger) {
+	.factory('Items', function Items($resource, $logger, $serverConfig) {
 		var parseDlapItems = function (data)
 		{
 			if (data.response.code == "OK") {
@@ -23,7 +23,7 @@ angular.module('cgAngularApp')
 						Id: item.id,
 						Title: item.data.title.$value,
 						Description: item.data.description ? item.data.description.$value : "",
-						ImageUrl: img,
+						ImageUrl: $serverConfig.ImagePath + img,
 						Toc: "syllabusfilter",
 						Container: containerNode ? containerNode.$value : "",
 						Subcontainer: subcontainerNode ? subcontainerNode.$value : "",
@@ -31,7 +31,9 @@ angular.module('cgAngularApp')
 						Sequence: item.data.bfw_tocs.syllabusfilter.sequence,
 						Children: [],
 						CanHaveChildren: item.data.bfw_type.$value == "PxUnit",
-						Url: (item.data.href ? item.data.href.entityid + "/" + item.data.href.$value : "")
+						Url: $serverConfig.ContentPath + (item.data.href ?
+							item.data.href.entityid ? item.data.href.entityid : $serverConfig.AgilixDisciplineId
+								+ "/" + item.data.href.$value : "")
 					});
 				});
 				$logger.log(data);
@@ -43,7 +45,7 @@ angular.module('cgAngularApp')
 			return parseDlapItems(data)[0];
 		};
 		var Items = $resource(
-			'http://dev.dlap.bfwpub.com/dlap.ashx',
+			$serverConfig.DlapServer,
 			{
 				_format:'json',
 				_callback:'JSON_CALLBACK',

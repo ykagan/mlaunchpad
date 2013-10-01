@@ -249,7 +249,8 @@ module.exports = function (grunt) {
             '.htaccess',
             'bower_components/**/*',
             'images/{,*/}*.{gif,webp}',
-            'fonts/*'
+            'fonts/*',
+	        'content/*'
           ]
         }, {
           expand: true,
@@ -313,7 +314,32 @@ module.exports = function (grunt) {
           ]
         }
       }
-    }
+    },
+  manifest: {
+	  generate: {
+		  options: {
+			  basePath: 'dist/',
+			  network: ['http://*', 'https://*'],
+			  fallback: ['/ /offline.html'],
+			  exclude: ['js/jquery.min.js'],
+			  preferOnline: false,
+			  verbose: true,
+			  timestamp: true,
+			  hash: true,
+			  master: ['index.html']
+		  },
+		  src: [
+			  '*.html',
+			  'scripts/*.js',
+			  'styles/*.css',
+			  'views/*.html',
+			  'images/*.png',
+			  'content/*'
+
+		  ],
+		  dest: 'dist/manifest.appcache'
+	  }
+  }
   });
 
   grunt.registerTask('server', function (target) {
@@ -351,7 +377,8 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+	'manifest'
   ]);
 
   grunt.registerTask('default', [
@@ -359,4 +386,7 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-manifest');
+
 };

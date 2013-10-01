@@ -6,10 +6,12 @@ angular.module('cgAngularApp')
 			$scope.itemId = $stateParams.item;
 			$scope.item = Container.GetItem($scope.itemId);
 			$scope.item.$promise.then(function(){
-				$scope.urlSafe = $sce.trustAsResourceUrl("http://www.worthpublishers.com/brainhoney/resource/" + $scope.item.Url);
-
+				$scope.urlSafe = $sce.trustAsResourceUrl($scope.item.Url);
+				$rootScope.title = $scope.item.Title;
 			});
-			$rootScope.showContentBrowser = false;
+
+
+
 		}
 
 	});

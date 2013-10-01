@@ -1,11 +1,5 @@
 <div class="content-viewer" ng-controller="ContentviewerCtrl">
-	   <div>
-		{{ item.Title }}
-	   </div>
-		<div>
-			{{ item.Description }}
-		</div>
 		<div class="content-view-wrapper">
-			<iframe class="content-view" src="{{ urlSafe }}" />
+			<iframe class="content-view" src="{{ urlSafe }}" frameborder="0" name="content-view" />
 		</div>
 </div>

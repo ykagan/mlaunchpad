@@ -6,7 +6,11 @@ angular.module('cgAngularApp')
     $scope.menuCollapsedClass = function(){
         return $scope.showCollapsedNav ? '' : 'collapsed';
     }
-		$scope.toggleLaunchpad = function(){
-			$rootScope.showContentBrowser = !$rootScope.showContentBrowser;
-		}
+	$scope.toggleLaunchpad = function(){
+		$rootScope.showContentBrowser = !$rootScope.showContentBrowser;
+	}
+	$rootScope.$watch("title", function(){
+		$scope.title = $rootScope.title;
+	});
+
   });

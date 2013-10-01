@@ -1,0 +1,31 @@
+<link src="styles/contentbrowser2.css" type="text/css"/>
+<div class="container">
+	<div class="row" ng-repeat="item in rootItems"
+	     ng-class="{activeItem: $state.params.item == item.Id, openItem: item.State == 'open'}"
+			scroll-if="item.State == 'open'" scroll-container="scrollable">
+		<div  class="col-lg-5 col-md-5">
+			<a ng-click="toggleChapter(item)">
+					<div class="img-responsive thumbnail lp-root-item-image " style="background-image: url('{{item.ImageUrl}}');" ></div>
+
+			</a>
+		</div>
+		<div class="col-lg-7 col-md-7">
+			<h3><a ng-click="toggleChapter(item)">{{item.Title}}</a></h3>
+			<p>
+				{{item.Description}}
+			</p>
+		</div>
+		<div class="col-lg-11 col-md-11 well well-sm">
+			<div class="row animate-show" ng-repeat="child in item.Children" ng-show="ItemIsVisible(child)">
+				<a class=""
+				   ng-class="{activeItem: $state.params.item == child.Id, openItem: child.State == 'open'}"
+				   ng-click="clickNode(child)"
+				   style="padding-left:{{ (child.Level)*20 }}px">
+		                        <span class="glyphicon " ng-show="child.CanHaveChildren"
+		                              ng-class="{'glyphicon-chevron-down': child.State == 'open', 'glyphicon-chevron-right': child.State == 'closed'}"></span>
+					<span>{{child.Title}}</span></a>
+			</div>
+		</div>
+	</div>
+
+</div>

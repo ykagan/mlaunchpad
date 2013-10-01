@@ -4,7 +4,7 @@ angular.module('cgAngularApp', ['ui.router', 'ngCookies','ngResource', 'ngAnimat
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$stateProvider
 			.state('login', {
-				url: '',
+				url: '/login',
 				templateUrl: 'views/login.html',
 				controller: 'LoginCtrl'
 			})
@@ -14,21 +14,50 @@ angular.module('cgAngularApp', ['ui.router', 'ngCookies','ngResource', 'ngAnimat
 				templateUrl: 'views/main.html',
 				controller: 'MainCtrl'
 			})
+			.state('main.contentbrowser', {
+				url: "",
+				views: {
+					"contentbrowser@main": {
+						templateUrl: 'views/contentbrowser2.html',
+						resolve: {
+							rootItems: ['Container', function (Container) {
+								return Container.Getcontainer("Launchpad", "", "syllabusfilter");
+							}]
+						},
+						controller: "ContentbrowserCtrl"
+					}
+				}
+			})
 			.state('main.contentviewer', {
 				url: "/contentviewer/:container/:item",
 				views: {
 					"contentviewer@main": {templateUrl: 'views/contentviewer.html' },
-					"contentbrowser@main": {templateUrl: 'views/contentbrowser.html' }
+					"contentbrowser@main": {
+						templateUrl: 'views/contentbrowser2.html',
+						resolve: {
+							rootItems: ['Container', function (Container) {
+								return Container.Getcontainer("Launchpad", "", "syllabusfilter");
+							}]
+						},
+						controller: "ContentbrowserCtrl"
+					}
 				}
+
 			})
 	})
 	.run(function ($rootScope, $location, Account) {
-
-		$rootScope.$on("$routeChangeStart", function (event, next, current) {
-			if (Account.isLoggedIn()) {
+		if (!Account.isLoggedIn()) {
+			$location.path('/login');
+		}
+		else
+		{
+			if(!$location.path())
+			{
 				$location.path('/main');
 			}
-			else {
+		}
+		$rootScope.$on("$routeChangeStart", function (event, next, current) {
+			if (!Account.isLoggedIn()) {
 				$location.path('/login');
 			}
 		});

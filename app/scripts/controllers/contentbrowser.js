@@ -1,34 +1,25 @@
 'use strict';
 
 angular.module('cgAngularApp')
-  .controller('ContentbrowserCtrl', function ($scope, $state, $stateParams, Container) {
-        $scope.rootItems = function()
-        {
-            var rootItems = Container.Getcontainer("Launchpad", "", "syllabusfilter");
+  .controller('ContentbrowserCtrl', function ($scope, $rootScope, $state, $stateParams, Container, rootItems) {
+        //$scope.rootItems = Container.Getcontainer("Launchpad", "", "syllabusfilter");
+		$scope.rootItems = rootItems;
 
-	        rootItems.$promise.then(function(){
-			        //scan items
-			        angular.forEach(rootItems, function (item, key) {
-				        if (item.CanHaveChildren) {
-					        item.State = 'closed';
-				        }
-				        else {
-					        item.State = 'barren';
-				        }
-			        });
+		$scope.rootItems.$promise.then(function () {
+	        //scan items
+	        angular.forEach($scope.rootItems, function (item, key) {
+		        if (item.CanHaveChildren) {
+			        item.State = 'closed';
 		        }
-	        );
+		        else {
+			        item.State = 'barren';
+		        }
+	        });
+		});
 
-            return rootItems;
-        }();
 
 
 		var openNode = function (item) {
-
-			if(item.ParentContainer == null)
-			{
-				item.ParentContainer = $scope.rootItems;
-			}
 			if (item.State == "closed") {
 				item.State = 'open';
 			}
@@ -36,6 +27,7 @@ angular.module('cgAngularApp')
 				item.State = 'closed';
 			}
 		};
+
 		var loadContainer = function(item)
 		{
 			if (item.State === 'closed') {
@@ -44,12 +36,6 @@ angular.module('cgAngularApp')
 				children.$promise.then(function(){
 					//scan children
 					angular.forEach(children, function (child, key) {
-						if (child.Level > 2) {
-							child.isVisible = false;
-						}
-						else {
-							child.isVisible = true;
-						}
 						if (child.CanHaveChildren) {
 							child.State = 'closed';
 						}
@@ -74,6 +60,7 @@ angular.module('cgAngularApp')
 
 			}
 		};
+
 		if($stateParams.container)
 		{
 			var chapterItem = null;
@@ -89,6 +76,7 @@ angular.module('cgAngularApp')
 			});
 
 		}
+
 		if($stateParams.item)
 		{
 			$scope.rootItems.$promise.then(function () {
@@ -102,14 +90,13 @@ angular.module('cgAngularApp')
 						if(openItem.State != "open")
 						{
 							openNode(openItem);
-							$scope.$apply();
 						}
 						openParentItem(openItem.Parent);
 					});
 				};
 				openParentItem($stateParams.item);
 			});
-
+			$rootScope.showContentBrowser = false;
 		}
 
         $scope.toggleChapter = function(item)
@@ -117,14 +104,14 @@ angular.module('cgAngularApp')
 	        //loadContainer(item);
 	        if(item.State == "closed")
             {
-	            $state.go('main.contentviewer', {container: item.Id, item: $stateParams.item});
+	            $state.go('^.contentviewer', {container: item.Id});
             }
 	        else if(item.State == "open")
 	        {
-		        $state.go('main.contentviewer', {container: "", item: ""});
+		        $state.go('^.contentviewer', {container: "", item: ""});
 	        }
 	        else{
-		        $state.go('main.contentviewer', {container: "", item: item.Id});
+		        $state.go('^.contentviewer', {container: "", item: item.Id});
 	        }
         };
 
@@ -139,5 +126,18 @@ angular.module('cgAngularApp')
 	            $state.go('main.contentviewer', {container: item.ParentContainer.Id, item: item.Id});
             }
         }
+
+		$scope.ItemIsVisible = function(item)
+		{
+			if(item.ParentItem == null || item.ParentItem == "PX_MULTIPART_LESSONS")
+			{
+				return true;
+			}
+			if(item.ParentItem.State == "open")
+			{
+				return $scope.ItemIsVisible(item.ParentItem);
+			}
+
+		}
 
   });
