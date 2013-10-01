@@ -21,7 +21,7 @@ angular.module('cgAngularApp', ['ui.router', 'ngCookies','ngResource', 'ngAnimat
 						templateUrl: 'views/contentbrowser2.html',
 						resolve: {
 							rootItems: ['Container', function (Container) {
-								return Container.Getcontainer("Launchpad", "", "syllabusfilter");
+								return Container.Getcontainer("Launchpad", "", "syllabusfilter").$promise;
 							}]
 						},
 						controller: "ContentbrowserCtrl"
@@ -31,12 +31,20 @@ angular.module('cgAngularApp', ['ui.router', 'ngCookies','ngResource', 'ngAnimat
 			.state('main.contentviewer', {
 				url: "/contentviewer/:container/:item",
 				views: {
-					"contentviewer@main": {templateUrl: 'views/contentviewer.html' },
+					"contentviewer@main": {
+						templateUrl: 'views/contentviewer.html',
+						resolve: {
+							item: ['Container', '$stateParams', function (Container, $stateParams) {
+								return Container.GetItem($stateParams.item).$promise;
+							}]
+						},
+						controller: "ContentviewerCtrl"
+					},
 					"contentbrowser@main": {
 						templateUrl: 'views/contentbrowser2.html',
 						resolve: {
 							rootItems: ['Container', function (Container) {
-								return Container.Getcontainer("Launchpad", "", "syllabusfilter");
+								return Container.Getcontainer("Launchpad", "", "syllabusfilter").$promise;
 							}]
 						},
 						controller: "ContentbrowserCtrl"

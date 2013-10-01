@@ -54,7 +54,9 @@ angular.module('cgAngularApp')
 			            });
 			            angular.forEach(items, function(item)  {
 				            item.$promise = {
-					          then: function(callback){callback();}
+					          then: function(callback){
+						          callback(item);
+					          }
 				            };
 				            cache.put("GetItem_" + item.Id, item);
 			            });

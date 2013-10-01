@@ -2,20 +2,16 @@
 
 angular.module('cgAngularApp')
   .controller('ContentbrowserCtrl', function ($scope, $rootScope, $state, $stateParams, Container, rootItems) {
-        //$scope.rootItems = Container.Getcontainer("Launchpad", "", "syllabusfilter");
 		$scope.rootItems = rootItems;
 
-		$scope.rootItems.$promise.then(function () {
-	        //scan items
-	        angular.forEach($scope.rootItems, function (item, key) {
-		        if (item.CanHaveChildren) {
-			        item.State = 'closed';
-		        }
-		        else {
-			        item.State = 'barren';
-		        }
-	        });
-		});
+        angular.forEach($scope.rootItems, function (item, key) {
+	        if (item.CanHaveChildren) {
+		        item.State = 'closed';
+	        }
+	        else {
+		        item.State = 'barren';
+	        }
+        });
 
 
 
@@ -26,6 +22,7 @@ angular.module('cgAngularApp')
 			else if (item.State == "open") {
 				item.State = 'closed';
 			}
+
 		};
 
 		var loadContainer = function(item)
@@ -64,7 +61,6 @@ angular.module('cgAngularApp')
 		if($stateParams.container)
 		{
 			var chapterItem = null;
-			$scope.rootItems.$promise.then(function () {
 				angular.forEach($scope.rootItems, function (item, key) {
 					if (item.Id == $stateParams.container) {
 						chapterItem = item;
@@ -73,30 +69,25 @@ angular.module('cgAngularApp')
 				if (chapterItem) {
 					loadContainer(chapterItem);
 				}
-			});
-
 		}
 
 		if($stateParams.item)
 		{
-			$scope.rootItems.$promise.then(function () {
-				var openParentItem = function(parentId)
-				{
-					if(parentId == null || parentId == "PX_MULTIPART_LESSONS")
-						return;
+			var openParentItem = function(parentId)
+			{
+				if(parentId == null || parentId == "PX_MULTIPART_LESSONS")
+					return;
 
-					var openItem = Container.GetItem(parentId);
-					openItem.$promise.then(function () {
-						if(openItem.State != "open")
-						{
-							openNode(openItem);
-						}
-						openParentItem(openItem.Parent);
-					});
-				};
-				openParentItem($stateParams.item);
-			});
-			$rootScope.showContentBrowser = false;
+				var openItem = Container.GetItem(parentId);
+				openItem.$promise.then(function () {
+					if(openItem.State != "open")
+					{
+						openNode(openItem);
+					}
+					openParentItem(openItem.Parent);
+				});
+			};
+			openParentItem($stateParams.item);
 		}
 
         $scope.toggleChapter = function(item)
@@ -104,14 +95,20 @@ angular.module('cgAngularApp')
 	        //loadContainer(item);
 	        if(item.State == "closed")
             {
-	            $state.go('^.contentviewer', {container: item.Id});
+	            //$state.go('^.contentviewer', {container: item.Id});
+	            //openNode(item);
+	            loadContainer(item);
             }
 	        else if(item.State == "open")
 	        {
-		        $state.go('^.contentviewer', {container: "", item: ""});
+		        //$state.go('^.contentviewer', {container: "", item: ""});
+		        openNode(item);
 	        }
 	        else{
+
+		        $rootScope.showContentBrowser = false;
 		        $state.go('^.contentviewer', {container: "", item: item.Id});
+		        //openNode(item);
 	        }
         };
 
@@ -123,7 +120,12 @@ angular.module('cgAngularApp')
 	        }
 	        else
             {
-	            $state.go('main.contentviewer', {container: item.ParentContainer.Id, item: item.Id});
+	            $rootScope.showContentBrowser = false;
+	            setTimeout(function(){
+		            $state.go('^.contentviewer', {container: item.ParentContainer.Id, item: item.Id});
+	            },200);
+
+
             }
         }
 
@@ -137,7 +139,7 @@ angular.module('cgAngularApp')
 			{
 				return $scope.ItemIsVisible(item.ParentItem);
 			}
-
 		}
+
 
   });

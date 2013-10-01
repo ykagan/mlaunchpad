@@ -2,10 +2,10 @@
 
 angular.module('cgAngularApp')
   .controller('MainCtrl', function ($scope, $rootScope, $state) {
-		$rootScope.showContentBrowser = true;
+		//$rootScope.showContentBrowser = true;
 
 		if ($state.params.item) {
-			//$rootScope.showContentBrowser = false;
+			$rootScope.showContentBrowser = false;
 		}
 		else
 			$rootScope.showContentBrowser = true;

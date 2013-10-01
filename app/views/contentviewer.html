@@ -1,5 +1,11 @@
-<div class="content-viewer" ng-controller="ContentviewerCtrl">
+<div class="content-viewer">
+	<div class="content-nav left animate-show" ng-show="!$parent.showContentBrowser"><button><span class="glyphicon glyphicon-chevron-left"></span></button>
+	</div>
+
 		<div class="content-view-wrapper">
 			<iframe class="content-view" src="{{ urlSafe }}" frameborder="0" name="content-view" />
 		</div>
+	<div class="content-nav right animate-show" ng-show="!$parent.showContentBrowser">
+		<button><span class="glyphicon glyphicon-chevron-right"></span></button>
+	</div>
 </div>
