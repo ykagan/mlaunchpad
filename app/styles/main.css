@@ -26,17 +26,3 @@ body {
 a {
     cursor: pointer;
 }
-.lp-root-item-image
-{
-	min-height: 200px;
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-.thumbnail
-{
-	-webkit-transition: none;
-	transition: none;
-}
-

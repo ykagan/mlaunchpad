@@ -1,18 +1,37 @@
 'use strict';
 
 angular.module('cgAngularApp')
-  .controller('ContentbrowserCtrl', function ($scope, $rootScope, $state, $stateParams, Container, rootItems) {
-		$scope.rootItems = rootItems;
-
-        angular.forEach($scope.rootItems, function (item, key) {
+  .controller('ContentbrowserCtrl', function ($scope, $rootScope, $state, Container, rootItems) {
+	    angular.forEach(rootItems, function (item, key) {
 	        if (item.CanHaveChildren) {
 		        item.State = 'closed';
 	        }
 	        else {
 		        item.State = 'barren';
 	        }
-        });
+	    });
 
+		$scope.rootItems = rootItems;
+
+		//opens subcontainer to currently open item from content viewer
+		var checkItemParam = function (subcontainer) {
+			if ($state.params.item) {
+				var openParentItem = function (parentId) {
+					if (parentId == null || parentId == "PX_MULTIPART_LESSONS")
+						return;
+
+					var openItem = Container.GetItem(parentId);
+					if (openItem.Subcontainer == subcontainer) {
+						if (openItem.State == "closed") {
+							openNode(openItem);
+						}
+						openParentItem(openItem.Parent);
+					}
+				};
+				openParentItem($state.params.item);
+
+			}
+		};
 
 
 		var openNode = function (item) {
@@ -41,6 +60,7 @@ angular.module('cgAngularApp')
 						}
 						child.ParentContainer = item;
 					});
+					checkItemParam(item.Id);
 					item.Children = children;
 				});
 				//close all root items
@@ -51,6 +71,7 @@ angular.module('cgAngularApp')
 
 				});
 				item.State = 'open';
+				$scope.currentContainer = item;
 			}
 			else if (item.State == "open") {
 				item.State = 'closed';
@@ -58,57 +79,43 @@ angular.module('cgAngularApp')
 			}
 		};
 
-		if($stateParams.container)
+		//update selected item on state change
+		$rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+			if ($scope.currentContainer) {
+				checkItemParam($scope.currentContainer.Id);
+			}
+
+		});
+
+		if($state.params.container)
 		{
 			var chapterItem = null;
-				angular.forEach($scope.rootItems, function (item, key) {
-					if (item.Id == $stateParams.container) {
-						chapterItem = item;
-					}
-				});
-				if (chapterItem) {
-					loadContainer(chapterItem);
+			angular.forEach($scope.rootItems, function (item, key) {
+				if (item.Id == $state.params.container) {
+					chapterItem = item;
 				}
+			});
+			if (chapterItem) {
+				loadContainer(chapterItem);
+			}
 		}
 
-		if($stateParams.item)
-		{
-			var openParentItem = function(parentId)
-			{
-				if(parentId == null || parentId == "PX_MULTIPART_LESSONS")
-					return;
 
-				var openItem = Container.GetItem(parentId);
-				openItem.$promise.then(function () {
-					if(openItem.State != "open")
-					{
-						openNode(openItem);
-					}
-					openParentItem(openItem.Parent);
-				});
-			};
-			openParentItem($stateParams.item);
-		}
-
+/* Item-level functions */
         $scope.toggleChapter = function(item)
         {
-	        //loadContainer(item);
 	        if(item.State == "closed")
             {
-	            //$state.go('^.contentviewer', {container: item.Id});
-	            //openNode(item);
 	            loadContainer(item);
             }
 	        else if(item.State == "open")
 	        {
-		        //$state.go('^.contentviewer', {container: "", item: ""});
 		        openNode(item);
 	        }
 	        else{
 
 		        $rootScope.showContentBrowser = false;
-		        $state.go('^.contentviewer', {container: "", item: item.Id});
-		        //openNode(item);
+		        $state.go('main.contentbrowser.contentviewer', {container: "", item: item.Id});
 	        }
         };
 
@@ -121,11 +128,7 @@ angular.module('cgAngularApp')
 	        else
             {
 	            $rootScope.showContentBrowser = false;
-	            setTimeout(function(){
-		            $state.go('^.contentviewer', {container: item.ParentContainer.Id, item: item.Id});
-	            },200);
-
-
+		        $state.go('main.contentbrowser.contentviewer', {container: item.ParentContainer.Id, item: item.Id});
             }
         }
 
@@ -140,6 +143,7 @@ angular.module('cgAngularApp')
 				return $scope.ItemIsVisible(item.ParentItem);
 			}
 		}
+/* END Item-level functions */
 
 
   });

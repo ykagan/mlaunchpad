@@ -1,4 +1,3 @@
-<link src="styles/contentbrowser2.css" type="text/css"/>
 <div class="container">
 	<div class="row" ng-repeat="item in rootItems"
 	     ng-class="{activeItem: $state.params.item == item.Id, openItem: item.State == 'open'}"
@@ -15,10 +14,10 @@
 				{{item.Description}}
 			</p>
 		</div>
-		<div class="col-lg-11 col-md-11 well well-sm">
-			<div class="row animate-show" ng-repeat="child in item.Children" ng-show="ItemIsVisible(child)">
+		<div class="col-lg-11 col-md-11 well well-sm question-well">
+			<div class="row animate-show" ng-repeat="child in item.Children" ng-show="ItemIsVisible(child)" ng-class="{activeItem: $state.params.item == child.Id}">
 				<a class=""
-				   ng-class="{activeItem: $state.params.item == child.Id, openItem: child.State == 'open'}"
+				   ng-class="{openItem: child.State == 'open'}"
 				   ng-click="clickNode(child)"
 				   style="padding-left:{{ (child.Level)*20 }}px">
 		                        <span class="glyphicon " ng-show="child.CanHaveChildren"

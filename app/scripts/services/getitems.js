@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cgAngularApp')
-	.factory('Items', function Items($resource, $logger, $serverConfig) {
+	.factory('Items', function Items($resource, $logger, $serverConfig, $cookieStore) {
 		var parseDlapItems = function (data)
 		{
 			if (data.response.code == "OK") {
@@ -35,6 +35,7 @@ angular.module('cgAngularApp')
 							item.data.href.entityid ? item.data.href.entityid : $serverConfig.AgilixDisciplineId
 								+ "/" + item.data.href.$value : "")
 					});
+					$cookieStore.put('token', data.response._token);
 				});
 				$logger.log(data);
 				return data.response.items.item;
@@ -49,6 +50,7 @@ angular.module('cgAngularApp')
 			{
 				_format:'json',
 				_callback:'JSON_CALLBACK',
+				_token: $cookieStore.get('token'),
 				entityid: '@entityid'
 			},
 			{

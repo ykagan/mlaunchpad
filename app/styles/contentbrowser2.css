@@ -1,0 +1,23 @@
+.question-well{
+	-webkit-transition: all ease-out 1s;
+	-moz-transition: all ease-out 1s;
+	-o-transition: all ease-out 1s;
+	transition: all ease-out 1s;
+}
+
+.lp-root-item-image {
+	min-height: 200px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.thumbnail {
+	-webkit-transition: none;
+	transition: none;
+}
+
+.activeItem
+{
+	font-weight: bold;
+}

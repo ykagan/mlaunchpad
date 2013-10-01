@@ -28,7 +28,7 @@ angular.module('cgAngularApp', ['ui.router', 'ngCookies','ngResource', 'ngAnimat
 					}
 				}
 			})
-			.state('main.contentviewer', {
+			.state('main.contentbrowser.contentviewer', {
 				url: "/contentviewer/:container/:item",
 				views: {
 					"contentviewer@main": {
@@ -39,15 +39,6 @@ angular.module('cgAngularApp', ['ui.router', 'ngCookies','ngResource', 'ngAnimat
 							}]
 						},
 						controller: "ContentviewerCtrl"
-					},
-					"contentbrowser@main": {
-						templateUrl: 'views/contentbrowser2.html',
-						resolve: {
-							rootItems: ['Container', function (Container) {
-								return Container.Getcontainer("Launchpad", "", "syllabusfilter").$promise;
-							}]
-						},
-						controller: "ContentbrowserCtrl"
 					}
 				}
 
