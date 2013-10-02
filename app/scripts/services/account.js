@@ -36,8 +36,7 @@ angular.module('cgAngularApp' )
                 }
                 return null;
             },
-            isLoggedIn: function()
-            {
+            isLoggedIn: function() {
                 var user = $cookieStore.get('user');
                 if(user != null)
                 {
@@ -49,6 +48,14 @@ angular.module('cgAngularApp' )
                 }
 
                 return $rootScope.user != null && $rootScope.user.loggedIn;
-            }
+            },
+	        Logout: function() {
+		        $cookieStore.put('user',null);
+		        $cookieStore.put('token', null);
+
+		        $rootScope.user = null;
+		        $rootScope.course = null;
+
+	        }
         }
   });

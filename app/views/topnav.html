@@ -22,18 +22,19 @@
 		    <span class="icon-bar"></span>
 	    </button>
         <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown" ng-init="showAccount = false">
-                <a class="dropdown-toggle" ng-click="showAccount = !showAccount">Account<b class="caret"></b></a>
-                <ul class="dropdown-menu" style="display:block" ng-show="showAccount">
-                    <li><form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                    </form></li>
-                    <li><a ui-sref="login">Logout</a></li>
-                    <li><a href="#">Switch Course</a></li>
-                </ul>
-            </li>
+	        <li><a ng-click="logout()">Logout</a></li>
+            <!--<li class="dropdown" ng-init="showAccount = false">-->
+                <!--&lt;!&ndash;<a class="dropdown-toggle" ng-click="showAccount = !showAccount">Account<b class="caret"></b></a>&ndash;&gt;-->
+                <!--<ul class="dropdown-menu" style="display:block" ng-show="showAccount">-->
+                    <!--<li><form class="navbar-form navbar-right" role="search">-->
+                        <!--<div class="form-group">-->
+                            <!--<input type="text" class="form-control" placeholder="Search">-->
+                        <!--</div>-->
+                    <!--</form></li>-->
+                    <!---->
+                    <!--&lt;!&ndash;<li><a href="#">Switch Course</a></li>&ndash;&gt;-->
+                <!--</ul>-->
+            <!--</li>-->
         </ul>
 
 

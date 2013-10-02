@@ -1,8 +1,8 @@
 .question-well{
-	-webkit-transition: all ease-out 1s;
-	-moz-transition: all ease-out 1s;
-	-o-transition: all ease-out 1s;
-	transition: all ease-out 1s;
+	-webkit-transition: height ease-out 1s;
+	-moz-transition: height ease-out 1s;
+	-o-transition: height ease-out 1s;
+	transition: height ease-out 1s;
 }
 
 .lp-root-item-image {

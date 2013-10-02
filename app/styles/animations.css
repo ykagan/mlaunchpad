@@ -66,3 +66,43 @@
 .content-nav.animate-show.ng-hide-remove.ng-hide-remove-active {
 	opacity: 1;
 }
+
+.contentviewAnimation-add,
+.contentviewAnimation-remove{
+	-webkit-transition: left 1s;
+	-moz-transition: left 1s;
+	-o-transition: left 1s;
+	transition: left 1s;
+	position: relative;
+}
+
+.contentviewAnimation,
+.contentviewAnimation-add.contentviewAnimation-add-active{
+	left: -200%;
+	position: relative;
+}
+
+.contentviewAnimation-remove.contentviewAnimation-remove-active {
+	left: 0;
+	position: relative;
+}
+
+.animShow-add,
+.animShow-remove {
+	-webkit-transition: left 1s;
+	-moz-transition: left 1s;
+	-o-transition: left 1s;
+	transition: left 1s;
+	position: relative;
+}
+
+.animShow,
+.animShow-add.animShow-add-active {
+	left: 200%;
+	position: relative;
+}
+
+.animShow-remove.animShow-remove-active {
+	left: 0;
+	position: relative;
+}

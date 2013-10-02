@@ -1,11 +1,26 @@
 'use strict';
 
 angular.module('cgAngularApp')
-	.controller('ContentviewerCtrl', function ($scope, $sce,$state, $rootScope, item, Container, $logger) {
+	.controller('ContentviewerCtrl', function ($scope, $sce,$state, $rootScope, item, Container, $logger, $timeout) {
 		$scope.item = item;//Container.GetItem($scope.itemId);
 		$scope.urlSafe = $sce.trustAsResourceUrl($scope.item.Url);
 		$rootScope.title = $scope.item.Title;
-
+		if(item.origin == 'next')
+		{
+			$scope.animShow = true;
+			$timeout(function(scope){
+				$scope.animShow = false;
+				$scope.$apply();
+			});
+		}
+		else if (item.origin == 'prev')
+		{
+			$scope.animAway = true;
+			$timeout(function (scope) {
+				$scope.animAway = false;
+				$scope.$apply();
+			});
+		}
 		var switchNextPrev = function()
 		{
 			var item = $scope.item;
@@ -37,23 +52,35 @@ angular.module('cgAngularApp')
 		};
 
 		$scope.goPrev = function(){
-			var prevItem = switchNextPrev().prevItem;
-			if (!prevItem) {
-				$logger.warning("This is the first item in the chapter!");
-			}
-			else {
-				$state.go('^.contentviewer', {container: prevItem.Subcontainer, item: prevItem.Id});
-			}
-		};
+			$scope.animShow = true;
 
-		$scope.goNext = function () {
-			var nextItem = switchNextPrev().nextItem;
-			if (!nextItem) {
-				$logger.warning("This is the last item in the chapter!");
-			}
-			else {
-				$state.go('^.contentviewer', {container: nextItem.Subcontainer, item: nextItem.Id});
-			}
+			$timeout(function () {
+				var prevItem = switchNextPrev().prevItem;
+				prevItem.origin = 'prev';
+				if (!prevItem) {
+					$logger.warning("This is the first item in the chapter!");
+				}
+				else {
+					$state.go('^.contentviewer', {container: prevItem.Subcontainer, item: prevItem.Id});
+				}
+			},500);
+		};
+		$scope.goNext = function() {
+			$scope.animAway = true;
+
+			$timeout(function(){
+				var nextItem = switchNextPrev().nextItem;
+				nextItem.origin = 'next';
+				if (!nextItem) {
+					$logger.warning("This is the last item in the chapter!");
+				}
+				else {
+					$state.go('^.contentviewer', {container: nextItem.Subcontainer, item: nextItem.Id});
+				}
+			}, 500);
+
+
+
 		};
 
 

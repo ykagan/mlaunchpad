@@ -22,9 +22,13 @@
 .scrollable
 {
 	height: 100%;
-	overflow: auto;
-	-webkit-overflow-scroll: touch
-	overflow-scroll:
+	overflow: scroll;
+	-webkit-overflow-scroll: touch;
+	overflow-scroll:touch;
+}
+
+.scrollable > *{
+	-webkit-transform: translate3d(0, 0, 0);
 }
 .sidebar-offcanvas.offcanvas
 {
@@ -76,7 +80,11 @@
 .content-view {
 	width: 100%;
 	height: 100%;
+	overflow:hidden;
 }
+
+
+
 
 .content-nav{
 	height:100%;

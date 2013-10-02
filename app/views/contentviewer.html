@@ -3,10 +3,10 @@
 		<button ng-click="goPrev()"><span class="glyphicon glyphicon-chevron-left"></span></button>
 	</div>
 
-		<div class="content-view-wrapper">
-			<iframe class="content-view" src="{{ urlSafe }}" frameborder="0" name="content-view" />
+		<div class="content-view-wrapper" ng-class="{contentviewAnimation: animAway, animShow: animShow}">
+			<iframe iframe-autoheight class="content-view" src="{{ urlSafe }}" frameborder="0" name="content-view" />
 		</div>
 	<div class="content-nav right animate-show" ng-show="!$parent.showContentBrowser">
-		<button ng-click="goNext()"><span class="glyphicon glyphicon-chevron-right"></span></button>
+		<button ng-click="goNext() "><span class="glyphicon glyphicon-chevron-right"></span></button>
 	</div>
 </div>
