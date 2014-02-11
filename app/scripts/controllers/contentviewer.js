@@ -56,11 +56,12 @@ angular.module('cgAngularApp')
 
 			$timeout(function () {
 				var prevItem = switchNextPrev().prevItem;
-				prevItem.origin = 'prev';
+
 				if (!prevItem) {
 					$logger.warning("This is the first item in the chapter!");
 				}
 				else {
+					prevItem.origin = 'prev';
 					$state.go('^.contentviewer', {container: prevItem.Subcontainer, item: prevItem.Id});
 				}
 			},500);
@@ -70,11 +71,12 @@ angular.module('cgAngularApp')
 
 			$timeout(function(){
 				var nextItem = switchNextPrev().nextItem;
-				nextItem.origin = 'next';
+
 				if (!nextItem) {
 					$logger.warning("This is the last item in the chapter!");
 				}
 				else {
+					nextItem.origin = 'next';
 					$state.go('^.contentviewer', {container: nextItem.Subcontainer, item: nextItem.Id});
 				}
 			}, 500);

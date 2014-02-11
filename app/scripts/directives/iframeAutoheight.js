@@ -1,17 +1,20 @@
 'use strict';
 
 angular.module('cgAngularApp')
-	.directive('iframeAutoheight', function () {
+	.directive('iframeAutoheight', function ($timeout) {
 		return function (scope, element, attributes) {
 			var iframe = $(element[0]);
-			scope.$evalAsync(function(scope){
+			$timeout(function(scope){
 				$(iframe).iframeHeight({
-					blockCrossDomain: false,
+					blockCrossDomain: true,
 					watcher:true,
 					watcherTime:400,
-					resizeMaxTry:10,
-					resizeWaitTime:50
-				});
+					resizeMaxTry:4,
+					resizeWaitTime:50,
+					defaultHeight: $(window).height() - 100,
+					minimumHeight: $(window).height() - 100,
+					heightOffset: 20
+				}, 1000);
 			});
 		}
 	});

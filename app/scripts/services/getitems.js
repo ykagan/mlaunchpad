@@ -19,6 +19,14 @@ angular.module('cgAngularApp')
 					var subcontainerNode = $.grep(item.data["meta-subcontainers"]["meta-subcontainerid"], function (s) {
 						return s.toc == "syllabusfilter"
 					})[0];
+					var url = item.data.href ? item.data.href.$value : "";
+					var absoluteUrlPattern = /^https?:\/\//i;
+					if(url && !absoluteUrlPattern.test(url))
+					{
+						url = $serverConfig.ContentPath + (item.data.href ?
+							item.data.href.entityid ? item.data.href.entityid : $serverConfig.AgilixDisciplineId
+								+ "/" + item.data.href.$value : "");
+					}
 					angular.extend(item, {
 						Id: item.id,
 						Title: item.data.title.$value,
@@ -31,9 +39,7 @@ angular.module('cgAngularApp')
 						Sequence: item.data.bfw_tocs.syllabusfilter.sequence,
 						Children: [],
 						CanHaveChildren: item.data.bfw_type.$value == "PxUnit",
-						Url: $serverConfig.ContentPath + (item.data.href ?
-							item.data.href.entityid ? item.data.href.entityid : $serverConfig.AgilixDisciplineId
-								+ "/" + item.data.href.$value : "")
+						Url: url
 					});
 					$cookieStore.put('token', data.response._token);
 				});
@@ -43,7 +49,15 @@ angular.module('cgAngularApp')
 		};
 		var parseDlapItem = function(data)
 		{
-			return parseDlapItems(data)[0];
+			var items = parseDlapItems(data);
+			if(items && items.length)
+			{
+				return items[0];
+			}
+			else{
+				return [];
+			}
+
 		};
 		var Items = $resource(
 			$serverConfig.DlapServer,
